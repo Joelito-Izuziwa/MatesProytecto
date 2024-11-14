@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home JS-Proyect</title>
+    <style>
+        * {
+            font-family: 'Times New Roman', Times, serif;
+            padding: 10px;
+        }
+        .tablahrz {
+            background-color: tomato;
+            height: 210px;
+            border-radius: 10px;
+        }
+        #logo {
+            position: absolute;
+        }
+        .tablavrt {
+            background-color: tomato;
+            width: 400px;
+            height: 600px;
+            position: sticky;
+            border-radius: 10px;
+        }
+        .menu {
+            background-color: rgba(255, 255, 255, 0.288);
+            border-radius: 20px;
+            padding: 20px;
+            width: 1230px;
+            position: relative;
+            left: 220px;
+            top: 70px;
+            font-size: 20px;
+        }
+        .linkmenu {
+            color: rgb(255, 255, 255);
+            background-color: rgb(155, 155, 155);
+            border-radius: 20px;
+            text-decoration: none;
+            padding-left: 30px;
+            padding-right: 30px;
+        }
+        .linkmenu:hover {
+            background-color: rgb(128, 128, 128);
+            color: rgb(201, 201, 201);
+        }
+        .lineahor {
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+        }
+        .Didactico {
+            background-color: gray;
+            border-radius: 20px;
+            width: 1050px;
+            position: relative;
+            left: 440px;
+            bottom: 620px;
+        }
+        .container {
+            text-align: center;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            height: 600px;
+            position: relative;
+            left: 150px;
+        }
+        .question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .options button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 5px;
+            width: 80%;
+        }
+        .options button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            font-size: 20px;
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .skip-button {
+            background-color: #f44336;
+        }
+        .skip-button:hover {
+            background-color: #e53935;
+        }
+        .restart-button {
+            background-color: #4CAF50;
+            border-radius: 20px;
+            border-style: none;
+            color: #ffffff;
+            font-size: 20px;
+        }
+        .restart-button:hover {
+            background-color: #45a049;
+        }
+        .attempts-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #f9f9f9;
+        }
+        .attempts-table th, .attempts-table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        .attempts-table th {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="tablahrz">
+        <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px"></a>
+        <div class="menu">
+            <center>
+                <span style="margin-right: 20px;"><a href="derivadas.html" class="linkmenu">¿Qué son las derivadas?</a></span>
+                <span style="margin-right: 20px;"><a href="limites.html" class="linkmenu">¿Que son los límites?</a></span>
+                <span style="margin-right: 20px;"><a href="diderivadas.html" class="linkmenu">Ya estás aquí!</a></span>
+                <span style="margin-right: 20px;"><a href="" class="linkmenu">Didáctico de lineales</a></span>
+            </center>
+        </div>
+    </div>
+    <br><br>
+    <div class="tablavrt">
+        Didáctico de Derivadas!
+    </div>
+    <div class="Didactico">
+            <div class="container">
+                <h1>Juego de Derivadas</h1>
+                <div class="question" id="question">¿Cuál es la derivada de x^2?</div>
+                <div class="options">
+                    <button onclick="checkAnswer('2x')">2x</button>
+                    <button onclick="checkAnswer('x^2')">x^2</button>
+                    <button onclick="checkAnswer('x')">x</button>
+                    <button onclick="checkAnswer('2')">2</button>
+                </div>
+                <div class="result" id="result"></div>
+                <div class="score" id="score">Puntaje: 0</div>
+                <button id="skipButton" class="skip-button" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
+                <button id="restartButton" class="restart-button" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+
+                <div style="float:right; width:300px; height: 640px; background-color:#ffffff; border-radius:10px; padding:10px; position: absolute; left: 422px; bottom: 1px;">
+                    <h3>Últimos Intentos</h3>
+                    <table class="attempts-table" id="attemptsTable">
+                        <tr>
+                            <th>Intento</th>
+                            <th>Puntuación Final</th>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+    </div>
+    
+        <script>
+            const questions = [
+                { question: "¿Cuál es la derivada de x^2?", answer: "2x" },
+                { question: "¿Cuál es la derivada de 3x^3?", answer: "9x^2" },
+                { question: "¿Cuál es la derivada de sin(x)?", answer: "cos(x)" },
+                { question: "¿Cuál es la derivada de e^x?", answer: "e^x" },
+                { question: "¿Cuál es la derivada de ln(x)?", answer: "1/x" },
+            ];
+
+            let currentQuestionIndex = 0;
+            let score = 0;
+            let attempts = [];
+
+            function loadQuestion() {
+                const currentQuestion = questions[currentQuestionIndex];
+                document.getElementById('question').textContent = currentQuestion.question;
+
+                // Opciones aleatorias
+                const options = [
+                    currentQuestion.answer,
+                    getRandomAnswer(currentQuestion.answer),
+                    getRandomAnswer(currentQuestion.answer),
+                    getRandomAnswer(currentQuestion.answer),
+                ];
+
+                shuffleArray(options);
+
+                // Actualizar las opciones en los botones
+                const buttons = document.querySelectorAll('.options button');
+                buttons.forEach((button, index) => {
+                    button.textContent = options[index];
+                    button.onclick = () => checkAnswer(options[index], currentQuestion);
+                });
+
+                // Ocultar el botón "Pasar" y "Reiniciar"
+                document.getElementById('skipButton').style.display = 'none';
+                document.getElementById('restartButton').style.display = 'none';
+                document.getElementById('result').textContent = '';
+            }
+
+            function checkAnswer(selectedAnswer, currentQuestion) {
+                const correctAnswer = currentQuestion.answer;
+                let resultText = '';
+                if (selectedAnswer === correctAnswer) {
+                    score++;
+                    resultText = '¡Correcto!';
+                } else {
+                    resultText = 'Incorrecto.';
+                }
+
+                // Registrar el puntaje final
+                attempts.push(score);
+
+                document.getElementById('score').textContent = `Puntaje: ${score}`;
+                document.getElementById('result').textContent = resultText;
+
+                currentQuestionIndex++;
+                if (currentQuestionIndex < questions.length) {
+                    setTimeout(() => {
+                        document.getElementById('result').textContent = '';
+                        loadQuestion();
+                    }, 1000);
+                } else {
+                    endGame();
+                }
+            }
+
+            function updateAttemptsTable() {
+                const attemptsTable = document.getElementById('attemptsTable');
+                
+                // Limpiar la tabla
+                const rows = attemptsTable.querySelectorAll('tr:not(:first-child)');
+                rows.forEach(row => row.remove());
+
+                // Mostrar los últimos 10 intentos
+                const recentAttempts = attempts.slice(-10); // Obtener los últimos 10 intentos
+                recentAttempts.forEach((attempt, index) => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td>${index + 1}</td>
+                        <td>${attempt}</td>
+                    `;
+                    attemptsTable.appendChild(row);
+                });
+            }
+
+            function endGame() {
+                document.getElementById('question').textContent = '¡Juego terminado!';
+                document.getElementById('result').textContent = `Tu puntaje final es: ${score}`;
+                document.getElementById('skipButton').style.display = 'none';
+                document.getElementById('restartButton').style.display = 'inline-block'; // Mostrar el botón "Reiniciar"
+                updateAttemptsTable(); // Actualizar la tabla con los intentos
+            }
+
+            function restartGame() {
+                score = 0;
+                currentQuestionIndex = 0;
+
+                // Limpiar los intentos (pero manteniendo la historia)
+                attempts = attempts.slice(-10);  // Mantener solo los últimos 10 intentos
+                
+                // Actualizar el puntaje en la interfaz
+                document.getElementById('score').textContent = `Puntaje: ${score}`;
+
+                // Limpiar la tabla de intentos
+                updateAttemptsTable();
+
+                // Cargar la primera pregunta
+                loadQuestion();
+            }
+
+            function getRandomAnswer(correctAnswer) {
+                const randomAnswers = ["x", "2x", "x^2", "3x^2", "ln(x)", "e^x", "sin(x)", "cos(x)"];
+                let randomAnswer;
+                do {
+                    randomAnswer = randomAnswers[Math.floor(Math.random() * randomAnswers.length)];
+                } while (randomAnswer === correctAnswer);
+                return randomAnswer;
+            }
+
+            function shuffleArray(array) {
+                for (let i = array.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [array[i], array[j]] = [array[j], array[i]];
+                }
+            }
+
+            // Iniciar el juego
+            loadQuestion();
+        </script>
+</body>
+</html>
