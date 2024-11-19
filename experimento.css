@@ -1,0 +1,104 @@
+body {
+    background-color: aqua;
+}
+
+h1 {
+    background-color: rgba(0, 255, 255, 0);
+}
+
+.cajapag, body, html, * {
+    color: red;
+    animation-name: moverttl;
+    animation-duration: 1s;
+    animation-timing-function: cubic-bezier(0, 0.5, 0.6, 0.9);
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+}
+
+html {
+    animation-name: encendido;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-delay: 0s;
+}
+
+@keyframes encendido {
+    0% {
+        background-color: rgb(0, 0, 0);
+        opacity: 1; /* Cambiado de 100% a 1 */
+    }
+    50% {
+        background-color: aqua; /* Eliminar la segunda declaración de background-color */
+        opacity: 0.5; /* Cambiado de 50% a 0.5 */
+    }
+    100% {
+        background-color: aqua; /* Mantener el color de fondo */
+        opacity: 1; /* Cambiado de 0% a 1 */
+    }
+}
+
+@keyframes moverttl {
+    0% {
+        transform: translateX(100%);
+        opacity: 1; /* Cambiado de -100% a 1 */
+    }
+    50% {
+        background-color: aqua; /* Eliminar la segunda declaración de background-color */
+        opacity: 0.5; /* Cambiado de 50% a 0.5 */
+    }
+    100% {
+        transform: translateX(0%);
+        opacity: 1; /* Cambiado de -100% a 1 */
+        background-color: aqua; /* Mantener el color de fondo */
+    }
+    
+    body {
+        background-color: aqua;
+    }
+    
+    h1 {
+        background-color: rgba(0, 255, 255, 0);
+    }
+    
+    
+    html {
+        animation-name: encendido;
+        animation-duration: 3s;
+        animation-timing-function: ease-out;
+        animation-iteration-count: 1;
+        animation-delay: 0s;
+    }
+}
+    @keyframes encendido {
+        0% {
+            background-color: rgb(0, 0, 0);
+            opacity: 1; /* Cambiado de 100% a 1 */
+        }
+        50% {
+            background-color: aqua; /* Eliminar la segunda declaración de background-color */
+            opacity: 0.5; /* Cambiado de 50% a 0.5 */
+        }
+        100% {
+            background-color: aqua; /* Mantener el color de fondo */
+            opacity: 1; /* Cambiado de 0% a 1 */
+        }
+    }
+    
+    @keyframes moverttl {
+        0% {
+            transform: translateX(100%);
+            opacity: 1; /* Cambiado de -100% a 1 */
+            color: red; /* Color inicial */
+        }
+        50% {
+            transform: translateX(50%);
+            color: yellow; /* Color intermedio durante la animación */
+            opacity: 0.5; /* Cambiado de 50% a 0.5 */
+        }
+        100% {
+            transform: translateX(0%);
+            opacity: 1; /* Cambiado de -100% a 1 */
+            color: blue; /* Color final al terminar la animación */
+        }
+    }
