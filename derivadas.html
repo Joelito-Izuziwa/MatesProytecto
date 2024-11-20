@@ -5,183 +5,101 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Derivadas JS-Proyect</title>
     <style>
-        *{
-            font-family: 'Times New Roman', Times, serif;
-            padding: 10px;
-        }
-        .tablahrz{
-            background-color: tomato;
-            height: 210px;
-            border-radius: 10px;
-        }
-        #logo{
-            position: absolute;
-            
-        }
-        .tablavrt{
-            background-color: tomato;
-            width: 400px;
-            height: 600px;
-            position: sticky;
-            border-radius: 10px;
-            
-        }
         .menu{
-            background-color: rgba(255, 255, 255, 0.288);
-            border-radius: 20px;
-            padding: 20px;
-            width: 1230px;
+            background-color: rgb(36, 36, 36);
+            width: 300px;
+            height: 770px;
+            padding-top: 0%;
+            padding-right: 0%;
             position: relative;
-            left: 220px;
-            top: 70px;
-            font-size: 20px;
+            top: 100%;
+            right: 100%;
         }
-        .linkmenu{
-            color: rgb(255, 255, 255);
-            background-color: rgb(155, 155, 155);
-            border-radius: 20px;
-            text-decoration: none;
-            padding-left: 30px;
-            padding-right: 30px;
-                        
-        }
-        .linkmenu:hover{
-            background-color: rgb(128, 128, 128);
-            color: rgb(201, 201, 201);
-        }
-        .lineahor{
-            width: 20px;
-            height: 20px;
-            border-radius: 10px;
-        }
-        .informacion1{
-            background-color: gray;
-            border-radius: 20px;
-            width: 1050px;
-            position: relative;
-            left: 440px;
-            bottom: 620px;
+        .x{
+            opacity: 0%;
         }
     </style>
 </head>
 <body>
-    <div class="tablahrz">
+    <div class="menu">
         <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px"></a>
-        <div class="menu">
             <center>
-                <span style="margin-right: 20px;"><a href="derivadas.html" class="linkmenu">Ya estás aquí!</a></span>
-                <span style="margin-right: 20px;"><a href="limites.html" class="linkmenu">¿Que son los límites?</a></span>
-                <span style="margin-right: 20px;"><a href="diderivadas.html" class="linkmenu">Didáctico de derivadas</a></span>
+                <span style="margin-right: 20px;"><a href="derivadas.html" class="linkmenu">Ya estás aquí!</a></span> <br>
+                <span style="margin-right: 20px;"><a href="limites.html" class="linkmenu">¿Que son los límites?</a></span> <br>
+                <span style="margin-right: 20px;"><a href="diderivadas.html" class="linkmenu">Didáctico de derivadas</a></span> <br>
                 <span style="margin-right: 20px;"><a href="" class="linkmenu">Didáctico de lineales</a></span>
-
             </center>
-        </div>
     </div>
-    <br><br>
-    <div class="tablavrt">
-        Derivadas!
-    </div>
-    <div class="informacion1">
-       <center>
-        <p><h2><strong>Qué es una derivada y para qué sirven</strong></h2></p>
-        <p>
-            Es un concepto fundamental en el campo del cálculo y sus aplicaciones
-            abarcan diferentes áreas.
-            Una derivada es una medida de cómo cambia una función
-            matemática en relación con su variable independiente.
-            Por otra parte, la derivada se representa mediante el símbolo &quot;d&quot; o
-            &quot;dx&quot; y se lee como &quot;diferencial de x&quot; o &quot;diferencial respecto a x&quot;.
-        </p>
-        <p>
-            Cómo se calcula y cómo se aplica una derivada Para
-    calcular una derivada, se utiliza el concepto de límite. y se calcula la
-    pendiente de la recta tangente a la curva de la función en un punto
-    específico.
-    ¿Qué es la derivada de una función?
-    La derivada de una función matemática es la razón o velocidad de cambio de
-    una función en un determinado punto cuando su variable independiente
-    cambia. Es decir, qué tan rápido se está produciendo una variación.
-        </p>
-    
-    <p>
-        Derivada de una función: Explicación sencilla
-        Desde una perspectiva geométrica, la derivada de una función es la
-        pendiente de la recta tangente al punto donde se ubica x.
-    </p>
-    
-    <p>
-        En términos matemáticos, la derivada de una función puede expresarse
-        de la siguiente forma:
-    </p>
-    
-    
-    <p>
-        En la fórmula, x es el punto en el que la variable toma el valor de x.
-        Asimismo, h es cualquier número. Este luego se igualará a cero pues,
-        como vemos en la imagen superior, debemos calcular el límite de la
-        función cuando h se acerca a cero.
-    </p>
-    
-    <p>
-        Cabe recordar que, en general, la derivada es una función matemática
-        que se define como la tasa de cambio de una variable respecto a otra.
-        Es decir, en qué porcentaje aumenta o disminuye una variable cuando
-        otra también se ha incrementado o disminuido.
-    </p>
-    
-    <p>
-        EJEMPLOS DE DERIVADAS :
-    </p>
-    <p>
-        La derivada de una constante es igual a cero, pues dicho número no
-        varía en función de ninguna variable.
-    </p>
-    
-    <p>
-       <p>
-        Es decir, matemáticamente
-    <br>
-        Ejemplos
-       </p>
-        
-        1
-        <br>
-        <p>
-            Al ser la función un número constante no varía por lo tanto su derivada es
-        cero, es decir,
-        </p>
-        2
-        <br>
-        De igual manera, tenemos una función constante por lo tanto siguiendo la
-        regla su derivada sería cero
-        <p>
-    
-        </p>
-        Reglas de derivación de sumas, productos y cocientes
-        <p>
-    
-        </p>
-        Derivada de una suma
-        <p>
-            Derivada de una constante por una función
-    
+
+        <section class="sec0">
+            <h1 class="s1"><strong>Derivadas</strong></h1>
+        </section>
+
+        <section class="sec1">
+        <h3 class="s1"><strong>¿Que son las derivadas?</strong></h3> 
+
+        <p class="s2">
+            <h2>
+                Concepto: <br>
+            </h2>
+            Una derivada es una herramienta matemática que nos permite medir como cambia una cantidad en función a otra. <br>
+            Básicamente, si tienes una función que representa una curva (como la posicion de un bjeto a lo largo del tiempo) <br>
+            la derivada te dice a que velocidad cambia esa función en un punto en específico <br>
+
+            <p>
+            La derivada se puede entender como la pendiente de la tángente en un punto de la curva, es decir, indica la inclinación <br>
+            de la función en ese punto.
+            </p>
+
         </p>
         
-    
-        <p>
-            Derivada de un producto
-    
-        </p>
-        <p>
-            Derivada de una constante partida por una función
-    
-        </p>
-        <p>
-            Derivada de un cociente
-    
-        </p>
-    </p>
-       </center>
-    </div>
+        </section>
+
+        <section class="sec3">
+            <div class="s3">
+                <h2>Reglas de derivación para funciones básicas:</h2> <br>
+            </div>
+            <li>
+                la derivada de una constante es 0.
+            </li>
+            <li>
+                la derivada de una variable con respecto a sí misma es 1.
+            </li>
+            <li>
+                la derivada de la suma algebráica de un número finito de n funciones, es igual a la suma algebráica de las derivadas de las funciones.
+            </li>
+            <li>
+                cuando y=x la fórmula anterior se transforma en: <br>
+                <sup>d</sup>/<sub>dx</sub> (x <sup>n</sup>) = nx <sup>n-2</sup>
+            </li>
+
+            
+            <table>
+                <!-- Encabezado de la tabla -->
+                <tr>
+                  <th colspan="2">
+                    <h2>Funciones:</h2>
+                  </th>
+                </tr>
+            
+                <!-- Filas de datos -->
+                <tr>
+                  <td><sup>d(c)</sup>/<sub>dx</sub> = 0</td>
+                </tr>
+                <tr>
+                  <td><sup>d</sup>/<sub>dx</sub> = 1</td>
+                </tr>
+                <tr>
+                  <td><sup>d</sup>/<sub>dx</sub>(u + v + w) = <sup>du</sup>/<sub>dx</sub> + <sup>dv</sup>/<sub>dx</sub> + <sup>dw</sup>/<sub>dx</sub></td>
+                </tr>
+                <tr>
+                  <td><sup>d</sup>/<sub>dx</sub> (V<sup>n</sup>) = nV<sup>n-1</sup><sup>dv</sup>/<sub>dx</sub></td>
+                </tr>
+              </table>
+        </section>
+            <br><br>
+        <footer>
+            kkkka
+        </footer>
 </body>
 </html>
