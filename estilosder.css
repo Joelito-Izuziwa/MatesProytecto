@@ -1,0 +1,336 @@
+#logoid{
+    border-radius: 90px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(106, 106, 106, 0.689), white );
+    overflow-x: hidden;
+    background: -gr;
+}
+.links{
+    text-decoration: none;
+    color: #f2f2f2;
+    background-color: #246692;
+    padding: 5px;
+    border-radius: 20px;
+}
+.fndgris {
+    background-color: rgba(0, 0, 0, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.menu {
+    background-color: indigo;
+    position: fixed;
+    top: 0;
+    left: -340px; 
+    height: 100vh; 
+    width: 300px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.5s ease-in-out;
+    z-index: 2;
+}
+
+#menubtn {
+    display: none;
+}
+
+label {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 1000px;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 3;
+    transition: all 0.5s ease-in-out;
+}
+
+/* Animación para el botón */
+#menubtn:checked ~ label {
+    animation: moverBoton 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+#menubtn:not(:checked) ~ label {
+    animation: regresarBoton 0.5s cubic-bezier(0.5, 0, 0.75, 0) forwards;
+}
+
+@keyframes moverBoton {
+    from {
+        left: 10px;
+    }
+    to {
+        left: 350px;
+    }
+}
+
+@keyframes regresarBoton {
+    from {
+        left: 350px;
+    }
+    to {
+        left: 10px;
+    }
+}
+
+/* Animación del fondo gris */
+#menubtn:checked ~ .fndgris {
+    animation: mostrarFondo 0.5s ease-in-out forwards;
+}
+
+#menubtn:not(:checked) ~ .fndgris {
+    animation: ocultarFondo 0.5s ease-in-out forwards;
+}
+
+@keyframes mostrarFondo {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+}
+
+@keyframes ocultarFondo {
+    from {
+        background-color: rgba(0, 0, 0, 0.5);
+    }
+    to {
+        background-color: rgba(0, 0, 0, 0);
+    }
+}
+
+#menubtn:checked ~ .menu {
+    animation: mostrarMenu 0.5s ease-in-out forwards;
+}
+
+#menubtn:not(:checked) ~ .menu {
+    animation: ocultarMenu 0.5s ease-in-out forwards;
+}
+
+@keyframes mostrarMenu {
+    from {
+        left: -340px;
+    }
+    to {
+        left: 0;
+    }
+}
+
+@keyframes ocultarMenu {
+    from {
+        left: 0;
+    }
+    to {
+        left: -340px;
+    }
+}
+.fade-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    animation: fadeInEffect 7s forwards; /* Desvanece en 3 segundos */
+    position: fixed;
+    pointer-events: none;
+    z-index: 4;
+}
+
+/* Animación que hace que el fondo se transparenta */
+@keyframes fadeInEffect {
+    0% {
+    opacity: 1;
+    }
+    6.125%{
+    opacity: 0.9;
+    }
+    12.5%{
+    opacity: 0.8;
+    }
+    100% {
+    opacity: 0;
+    }
+}
+@font-face {
+    font-family: 'Mochreh';
+    src: url(Mochreh.otf);
+}
+.s1 {
+    font-family: 'Mochreh';
+    animation: titulo 4s ease-in-out forwards;
+    z-index: 5;
+    color: rgb(0, 0, 0);
+    position: fixed;
+    top: 50%; /* Empieza desde el centro */
+    left: 50%; /* Empieza desde el centro */
+    transform: translate(-50%, -50%); /* Centrado */
+}
+#menubtn:checked ~ .s1{
+    font-size: 60px;               /* Tamaño del texto */
+    font-weight: bold;             /* Negrita para el texto */
+    color: #fff;                   /* Color base del texto (blanco) */
+    text-align: center;            /* Alineación centrada */
+    letter-spacing: 2px;   
+    text-shadow: 0 0 50px rgba(0, 255, 255, 0.7);;
+}
+@keyframes titulo {
+    0% {
+        top: 50%; /* Empieza en el centro */
+        left: 50%; /* Centrado */
+        font-size: 80px; /* Tamaño inicial */
+        transform: translate(-50%, -50%); /* Centrado */
+        color: #fff;
+    }
+    60% {
+        top: 30%; /* Se queda en la misma posición */
+        font-size: 80px; /* Se mantiene grande por 2 segundos */
+        transform: translate(-50%, -30%); /* Ajuste de centrado */
+    }
+    70% {
+        top: 40%; /* Movimiento rápido hacia atrás */
+        font-size: 70px; /* Reducción de tamaño */
+        transform: translate(-50%, -40%);
+    }   
+    85%{
+        top: 10%; /* Movimiento rápido hacia atrás */
+        font-size: 55px; /* Reducción de tamaño */
+        transform: translate(-50%, -10%);
+    }
+    100% {
+        top: 10px; /* Se coloca en la parte superior */
+        font-size: 30px; /* Tamaño final */
+        transform: translate(-50%, 0); /* Ajuste final de centrado */
+        position: absolute;
+        color: black;
+    }
+}
+footer{
+    background-color: #3498db;
+    width: 100%;
+    padding: 100px;
+    box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.078);
+}
+/* Estilo general para la tabla */
+table {
+    width: 800px;
+    border-color: #246692;
+    border-collapse: collapse; /* Elimina los espacios entre celdas */
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    background-color: #fff; /* Fondo blanco */
+    animation: apariciontab 3s ease-in-out forwards;
+    animation-delay: 4s;
+    left: 1px;
+    position: absolute;
+    opacity: 0;
+}
+@keyframes apariciontab{
+    0%{
+        opacity: 0;
+        left: 1px;
+    }
+    100%{
+        opacity: 1;
+        left: 25%;
+    }
+}
+  /* Estilo para las celdas de la tabla */
+th, td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd; /* Borde suave */
+}
+  
+  /* Estilo para los encabezados */
+th {
+    background-color: indigo; /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+}
+  
+  /* Estilo para las filas alternas */
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Color de fondo gris claro para filas pares */
+}
+  
+  /* Estilo al pasar el mouse por encima de las filas */
+  tr:hover {
+    background-color: #ddd; /* Cambia el color cuando pasas el mouse por encima */
+}
+
+.fnd {
+    animation: fafa 3s ease-in-out forwards;
+    animation-delay: 7s;
+    font-size: 300px;
+    opacity: 0;
+    color: rgba(105, 105, 105, 0.572);
+    animation-delay: 1s;
+    position: absolute;
+    left: 10px;/*640px*/
+    z-index: -5; /* Ajuste si otros elementos tienen z-index alto */
+}
+@keyframes fafa{
+    0%{
+        left: 10px;
+        opacity: 0;
+    }
+    100%{
+        left: 640px;
+        opacity: 1;
+    }
+}
+.info1 {
+    position: absolute;
+    left: 50px;
+    opacity: 0; /* Comienza invisible */
+    animation: aparicion 2s ease-in-out forwards;
+    animation-delay: 4s;
+}
+
+@keyframes aparicion {
+    0% {
+        left: 1px;
+        opacity: 0; /* Comienza invisible */
+    }
+    100% {
+        left: 50px;
+        opacity: 1; /* Termina visible */
+    }
+}
+.s4{
+    text-align: right;
+    left: 700px;
+}
+.info2{
+    align-items: justify;
+    animation: aparicion2 2s ease-in-out forwards;
+    animation-delay: 4s;
+    text-align: justify;
+    position: absolute;
+    left: 1500px;
+    opacity: 0;
+}
+@keyframes aparicion2{
+    0%{
+        opacity: 0;
+        left: 1500;
+    }
+    100%{
+        opacity: 1;
+        left: 500px;
+    }
+}

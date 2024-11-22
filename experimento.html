@@ -6,18 +6,6 @@
   <title>Encendido de Página</title>
   <style>
     /* Aseguramos que el fondo negro cubra toda la pantalla y añadimos la imagen de fondo */
-    body, html {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-image: url('images.PNG'); /* Pon la ruta de tu imagen aquí */
-      background-size: cover; /* Asegura que la imagen cubra toda la pantalla */
-      background-position: center; /* Centra la imagen */
-    }
 
     /* Capa que cubre la página y hace el efecto de encendido */
     .fade-in {
@@ -27,6 +15,7 @@
       width: 100%;
       height: 100%;
       background-color: black;
+      position: fixed;
       animation: fadeInEffect 3s forwards; /* Desvanece en 3 segundos */
     }
 
@@ -39,29 +28,28 @@
         opacity: 0;
       }
     }
-
-    /* Contenido principal de la página */
-    .content {
-      color: white;
-      font-size: 2em;
-      position: relative;
-      z-index: 1; /* Asegura que el contenido quede sobre la capa de fondo */
-      opacity: 0;
-      animation: showContent 1s forwards 0s; /* Aparece después de 3 segundos */
-    }
-    .s0{
-        background-color: blanchedalmond;
-        color: black;
-        width: 500px;
-        height: 200px;
-        text-align: center;
-    }
     .s1{
         background-color: blanchedalmond;
         color: black;
         text-align: left;
+        font-size: 100px;
         width: 200px;
-        height: fit-content;
+        height: 1000px;
+        animation: loko 1s ease-in-out forwards;
+        animation-delay: 2s;
+        position: absolute;
+        z-index: -1;
+        left: 50px;
+    }
+    @keyframes loko{
+      0%{
+        left: 50px;
+        opacity: 0;
+      }
+      100%{
+        left: 400px;
+        opacity: 1;
+      }
     }
     /* Animación para hacer visible el contenido después del encendido */
     @keyframes showContent {
