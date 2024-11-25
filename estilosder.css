@@ -326,11 +326,12 @@ table {
  }
 
 .fnd {
+    font-family: 'Times New Roman', Times, serif;
     animation: fafa 3s ease-in-out forwards;
     animation-delay: 7s;
     font-size: 300px;
     opacity: 0;
-    color: rgba(105, 105, 105, 0.572);
+    color: rgba(255, 94, 234, 0.719);
     animation-delay: 1s;
     position: absolute;
     left: 10px;/*640px*/
@@ -463,4 +464,12 @@ hr{
 
 .decorativo{
     z-index: -0;
+}
+.s2{
+    font-size: 600%; /* Tamaño del texto del título */
+        color: #ff1493; /* Color del texto del título */
+        margin: 0; /* Eliminar márgenes por defecto */
+        text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+        font-family: Cy GroteK key;
+        font-family: Cy GroteK key;
 }

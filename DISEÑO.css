@@ -96,11 +96,11 @@ label {
 
 @keyframes mostrarFondo {
    from { background-color: rgba(0,0,0,0); }
-   to { background-color: rgba(255,105,180,0.5); } /* Fondo rosa semitransparente */
+   to { background-color: rgba(94, 94, 94, 0.5); } /* Fondo rosa semitransparente */
 }
 
 @keyframes ocultarFondo {
-   from { background-color: rgba(255,105,180,0.5); }
+   from { background-color: rgba(94, 94, 94, 0.5); }
    to { background-color: rgba(255,105,180,0); }
 }
 
@@ -146,11 +146,16 @@ label {
    src:url(Mochreh.otf);
 }
 .s1 {
+    background-image: url(BANNER_page-0001.jpg);
+    padding-left: 700px;
+    padding-right: 700px;    
+    padding-top: 100px;
+    padding-bottom: 300px;
     font-family: 'Rockwell Extra Bold';
     font-size: x-large;
     font-style: italic;
     animation: titulo 4s ease-in-out forwards;
-    z-index: 5;
+    z-index: -1;
     color: rgb(255, 0, 43);
     position: fixed;
     top: 50%; /* Empieza desde el centro */
@@ -204,13 +209,15 @@ label {
         color: rgb(255, 0, 85);
     }
 }
-----
 
 footer{
+
    background-color:#ffe4fb; /* Rosa claro para el pie de página */
    width :100%;
    padding :100px;
    box-shadow :0 -10px5px rgba(0 ,0 ,0 ,0.078);
+   z-index: -1;
+   position: relative;
 }
 
 /* Estilo general para la tabla */
@@ -220,6 +227,7 @@ table {
    margin :20px ;  
    font-family :Arial,sans-serif;
    background-color:#fff ; /* Fondo blanco para la tabla */
+   z-index: -1;
 }
 
 /* Estilo para las celdas de la tabla */
@@ -296,6 +304,7 @@ tr:hover {
 
 
 .s3 {
+    z-index: -1;
     font-family: Cy GroteK key;
     font-size: 100%;
     width: 90%;        /* Ancho de la caja */
@@ -314,7 +323,7 @@ tr:hover {
 }
 
     .grismath {
-        
+        z-index: -1;
         color: #fff;                     /* Color del texto */
         text-shadow: 
             0 0 5px #fff,               /* Brillo blanco */
@@ -327,6 +336,7 @@ tr:hover {
     }
     
     .s3 h2 {
+        z-index: -1;
         font-size: 600%; /* Tamaño del texto del título */
         color: #ff1493; /* Color del texto del título */
         margin: 0; /* Eliminar márgenes por defecto */
@@ -345,6 +355,7 @@ tr:hover {
 
 
 .s3 h2 {
+    z-index: -1;
     font-size: 600%; /* Tamaño del texto del título */
     color: #ff1493; /* Color del texto del título */
     margin: 0; /* Eliminar márgenes por defecto */
@@ -352,6 +363,7 @@ tr:hover {
 }
 
 .decorativo {
+    z-index: -1;
     border: none; /* Eliminar el borde por defecto */
     height: 40px; /* Altura del hr */
     background-color: #ff69b457; /* Color del hr */

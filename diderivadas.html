@@ -17,13 +17,6 @@
         #logo {
             position: absolute;
         }
-        .tablavrt {
-            background-color: tomato;
-            width: 400px;
-            height: 600px;
-            position: sticky;
-            border-radius: 10px;
-        }
         .menu {
             background-color: rgba(255, 255, 255, 0.288);
             border-radius: 20px;
@@ -127,24 +120,172 @@
         .attempts-table th {
             background-color: #e0e0e0;
         }
+        #logoid {
+    border-radius: 90px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(255, 182, 193, 0.8), rgba(255, 228, 225, 1)); /* Degradado en tonos rosas */
+    overflow-x: hidden;
+}
+
+.links {
+    text-decoration: none;
+    color: #ffffff; /* Texto blanco */
+    background-color: #ff69b4; /* Rosa brillante */
+    padding: 10px; /* Aumentar el padding para mejor clicabilidad */
+    border-radius: 20px;
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+.links:hover {
+    background-color: #ff1493; /* Rosa más oscuro al pasar el mouse */
+}
+
+.fndgris {
+    background-color: rgba(253, 211, 237, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.menu {
+    background-color: #ff1493; /* Rosa oscuro */
+    position: fixed;
+    top: 0;
+    left: -340px; 
+    height: 100vh; 
+    width: 300px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.5s ease-in-out;
+    z-index: 2;
+}
+
+#menubtn {
+    display: none; /* Ocultar checkbox */
+}
+
+label {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffffff; /* Fondo blanco para el botón */
+    color: #ff1493; /* Texto rosa oscuro */
+    border: none;
+    cursor: pointer;
+    border-radius: 1000px;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 3;
+    transition: all 0.5s ease-in-out; /* Transición suave */
+}
+
+/* Animación para el botón */
+#menubtn:checked ~ label {
+    animation: moverBoton 0.5s cubic-bezier(0.25,1,0.5,1) forwards;
+}
+
+#menubtn:not(:checked) ~ label {
+    animation: regresarBoton 0.5s cubic-bezier(0.5,0,0.75,0) forwards;
+}
+
+@keyframes moverBoton {
+    from { left: 10px; }
+    to { left: 350px; }
+}
+
+@keyframes regresarBoton {
+    from { left: 350px; }
+    to { left: 10px; }
+}
+
+/* Animación del fondo gris */
+#menubtn:checked ~ .fndgris {
+    animation: mostrarFondo 0.5s ease-in-out forwards;
+}
+
+#menubtn:not(:checked) ~ .fndgris {
+    animation: ocultarFondo 0.5s ease-in-out forwards;
+}
+@keyframes mostrarFondo {
+   from { background-color: rgba(0,0,0,0); }
+   to { background-color: rgba(94, 94, 94, 0.5); } /* Fondo rosa semitransparente */
+}
+
+@keyframes ocultarFondo {
+   from { background-color: rgba(94, 94, 94, 0.5); }
+   to { background-color: rgba(255,105,180,0); }
+}
+
+#menubtn:checked ~ .menu {
+   animation: mostrarMenu 0.5s ease-in-out forwards;  
+}
+
+#menubtn:not(:checked) ~ .menu {
+   animation: ocultarMenu 0.5s ease-in-out forwards;  
+}
+
+@keyframes mostrarMenu {
+   from { left:-340px; }
+   to { left : 0; }
+}
+
+@keyframes ocultarMenu {
+   from { left : 0; }
+   to { left : -340px; }
+}
+
+.fade-in {
+   position:absolute; 
+   top : 0; 
+   left : 0; 
+   width :100%; 
+   height :100%; 
+   background-color:black; 
+   animation : fadeInEffect 7s forwards; 
+   position : fixed; 
+   pointer-events:none; 
+   z-index :4; 
+}
+
+/* Animación que hace que el fondo se transparenta */
+@keyframes fadeInEffect {
+   from{opacity :1;} 
+   to{opacity :0;}
+}
+
+@font-face {
+   font-family:'Mochreh'; 
+   src:url(Mochreh.otf);
+}
     </style>
 </head>
 <body>
-    <div class="tablahrz">
-        <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px"></a>
-        <div class="menu">
-            <center>
-                <span style="margin-right: 20px;"><a href="derivadas.html" class="linkmenu">¿Qué son las derivadas?</a></span>
-                <span style="margin-right: 20px;"><a href="limites.html" class="linkmenu">¿Que son los límites?</a></span>
-                <span style="margin-right: 20px;"><a href="diderivadas.html" class="linkmenu">Ya estás aquí!</a></span>
-                <span style="margin-right: 20px;"><a href="" class="linkmenu">Didáctico de lineales</a></span>
-            </center>
-        </div>
+    <div class="fnd">GRIS <br> MATH</div>
+    <div class="fade-in"></div>
+    <input type="checkbox" id="menubtn">
+    <label for="menubtn"><img src="menu (1).png" alt="menulogo" width="30px" height="30px"></label>
+    <div class="menu">
+        <center>
+            <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
+            <span><a href="derivadas.html"class="links">Ya estás aquí!</a></span><br><br><br><br>
+            <span><a href="limites.html"class="links">¿Qué son los límites?</a></span><br><br><br><br>
+            <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
+            <span><a href="#"class="links">Didáctico de lineales</a></span><br><br><br><br><br><br><br><br>
+            <hr><br>
+            
+        </center>
     </div>
-    <br><br>
-    <div class="tablavrt">
-        Didáctico de Derivadas!
-    </div>
+    <div class="fndgris"></div>
+    <br><br
     <div class="Didactico">
             <div class="container">
                 <h1>Juego de Derivadas</h1>
@@ -156,151 +297,103 @@
                     <button onclick="checkAnswer('2')">2</button>
                 </div>
                 <div class="result" id="result"></div>
-                <div class="score" id="score">Puntaje: 0</div>
                 <button id="skipButton" class="skip-button" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
                 <button id="restartButton" class="restart-button" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
-
-                <div style="float:right; width:300px; height: 640px; background-color:#ffffff; border-radius:10px; padding:10px; position: absolute; left: 422px; bottom: 1px;">
-                    <h3>Últimos Intentos</h3>
-                    <table class="attempts-table" id="attemptsTable">
-                        <tr>
-                            <th>Intento</th>
-                            <th>Puntuación Final</th>
-                        </tr>
-                    </table>
-                </div>
             </div>
     </div>
-    
-        <script>
-            const questions = [
-                { question: "¿Cuál es la derivada de x^2?", answer: "2x" },
-                { question: "¿Cuál es la derivada de 3x^3?", answer: "9x^2" },
-                { question: "¿Cuál es la derivada de sin(x)?", answer: "cos(x)" },
-                { question: "¿Cuál es la derivada de e^x?", answer: "e^x" },
-                { question: "¿Cuál es la derivada de ln(x)?", answer: "1/x" },
+
+    <script>
+        const questions = [
+            { question: "¿Cuál es la derivada de x^2?", answer: "2x" },
+            { question: "¿Cuál es la derivada de 3x^3?", answer: "9x^2" },
+            { question: "¿Cuál es la derivada de 3x^3-9?", answer: "9x^2-0" },
+            { question: "¿Cuál es la derivada de -2x+5?", answer: "-2+0" },
+            { question: "¿Cuál es la derivada de -5x^-7?", answer: "35x^-8" },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function loadQuestion() {
+            const currentQuestion = questions[currentQuestionIndex];
+            document.getElementById('question').textContent = currentQuestion.question;
+
+            // Opciones aleatorias
+            const options = [
+                currentQuestion.answer,
+                getRandomAnswer(currentQuestion.answer),
+                getRandomAnswer(currentQuestion.answer),
+                getRandomAnswer(currentQuestion.answer),
             ];
 
-            let currentQuestionIndex = 0;
-            let score = 0;
-            let attempts = [];
+            shuffleArray(options);
 
-            function loadQuestion() {
-                const currentQuestion = questions[currentQuestionIndex];
-                document.getElementById('question').textContent = currentQuestion.question;
+            // Actualizar las opciones en los botones
+            const buttons = document.querySelectorAll('.options button');
+            buttons.forEach((button, index) => {
+                button.textContent = options[index];
+                button.onclick = () => checkAnswer(options[index], currentQuestion);
+            });
 
-                // Opciones aleatorias
-                const options = [
-                    currentQuestion.answer,
-                    getRandomAnswer(currentQuestion.answer),
-                    getRandomAnswer(currentQuestion.answer),
-                    getRandomAnswer(currentQuestion.answer),
-                ];
+            // Ocultar el botón "Pasar" y "Reiniciar"
+            document.getElementById('skipButton').style.display = 'none';
+            document.getElementById('restartButton').style.display = 'none';
+            document.getElementById('result').textContent = '';
+        }
 
-                shuffleArray(options);
-
-                // Actualizar las opciones en los botones
-                const buttons = document.querySelectorAll('.options button');
-                buttons.forEach((button, index) => {
-                    button.textContent = options[index];
-                    button.onclick = () => checkAnswer(options[index], currentQuestion);
-                });
-
-                // Ocultar el botón "Pasar" y "Reiniciar"
-                document.getElementById('skipButton').style.display = 'none';
-                document.getElementById('restartButton').style.display = 'none';
-                document.getElementById('result').textContent = '';
+        function checkAnswer(selectedAnswer, currentQuestion) {
+            const correctAnswer = currentQuestion.answer;
+            let resultText = '';
+            if (selectedAnswer === correctAnswer) {
+                resultText = '¡Correcto!';
+            } else {
+                resultText = 'Incorrecto.';
             }
 
-            function checkAnswer(selectedAnswer, currentQuestion) {
-                const correctAnswer = currentQuestion.answer;
-                let resultText = '';
-                if (selectedAnswer === correctAnswer) {
-                    score++;
-                    resultText = '¡Correcto!';
-                } else {
-                    resultText = 'Incorrecto.';
-                }
+            document.getElementById('result').textContent = resultText;
 
-                // Registrar el puntaje final
-                attempts.push(score);
-
-                document.getElementById('score').textContent = `Puntaje: ${score}`;
-                document.getElementById('result').textContent = resultText;
-
-                currentQuestionIndex++;
-                if (currentQuestionIndex < questions.length) {
-                    setTimeout(() => {
-                        document.getElementById('result').textContent = '';
-                        loadQuestion();
-                    }, 1000);
-                } else {
-                    endGame();
-                }
+            currentQuestionIndex++;
+            if (currentQuestionIndex < questions.length) {
+                setTimeout(() => {
+                    document.getElementById('result').textContent = '';
+                    loadQuestion();
+                }, 1000);
+            } else {
+                endGame();
             }
+        }
 
-            function updateAttemptsTable() {
-                const attemptsTable = document.getElementById('attemptsTable');
-                
-                // Limpiar la tabla
-                const rows = attemptsTable.querySelectorAll('tr:not(:first-child)');
-                rows.forEach(row => row.remove());
+        function endGame() {
+            document.getElementById('question').textContent = '¡Juego terminado!';
+            document.getElementById('result').textContent = '¡Fin del juego!';
+            document.getElementById('skipButton').style.display = 'none';
+            document.getElementById('restartButton').style.display = 'inline-block'; // Mostrar el botón "Reiniciar"
+        }
 
-                // Mostrar los últimos 10 intentos
-                const recentAttempts = attempts.slice(-10); // Obtener los últimos 10 intentos
-                recentAttempts.forEach((attempt, index) => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>${index + 1}</td>
-                        <td>${attempt}</td>
-                    `;
-                    attemptsTable.appendChild(row);
-                });
-            }
-
-            function endGame() {
-                document.getElementById('question').textContent = '¡Juego terminado!';
-                document.getElementById('result').textContent = `Tu puntaje final es: ${score}`;
-                document.getElementById('skipButton').style.display = 'none';
-                document.getElementById('restartButton').style.display = 'inline-block'; // Mostrar el botón "Reiniciar"
-                updateAttemptsTable(); // Actualizar la tabla con los intentos
-            }
-
-            function restartGame() {
-                score = 0;
-                currentQuestionIndex = 0;
-
-                // Limpiar los intentos (pero manteniendo la historia)
-                attempts = attempts.slice(-10);  // Mantener solo los últimos 10 intentos
-                
-                // Actualizar el puntaje en la interfaz
-                document.getElementById('score').textContent = `Puntaje: ${score}`;
-
-                // Limpiar la tabla de intentos
-                updateAttemptsTable();
-
-                // Cargar la primera pregunta
-                loadQuestion();
-            }
-
-            function getRandomAnswer(correctAnswer) {
-                const randomAnswers = ["x", "2x", "x^2", "3x^2", "ln(x)", "e^x", "sin(x)", "cos(x)"];
-                let randomAnswer;
-                do {
-                    randomAnswer = randomAnswers[Math.floor(Math.random() * randomAnswers.length)];
-                } while (randomAnswer === correctAnswer);
-                return randomAnswer;
-            }
-
-            function shuffleArray(array) {
-                for (let i = array.length - 1; i > 0; i--) {
-                    const j = Math.floor(Math.random() * (i + 1));
-                    [array[i], array[j]] = [array[j], array[i]];
-                }
-            }
-
-            // Iniciar el juego
+        function restartGame() {
+            currentQuestionIndex = 0;
+            // Limpiar la interfaz y cargar la primera pregunta
             loadQuestion();
-        </script>
+        }
+
+        function getRandomAnswer(correctAnswer) {
+            const randomAnswers = ["x", "2x", "x^2", "3x^2", "ln(x)", "e^x", "sin(x)", "cos(x)"];
+            let randomAnswer;
+            do {
+                randomAnswer = randomAnswers[Math.floor(Math.random() * randomAnswers.length)];
+            } while (randomAnswer === correctAnswer);
+            return randomAnswer;
+        }
+
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+        }
+
+        // Iniciar el juego
+        loadQuestion();
+    </script>
 </body>
+
 </html>
