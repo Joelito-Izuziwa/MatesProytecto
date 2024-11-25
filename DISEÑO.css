@@ -1,0 +1,455 @@
+#logoid {
+    border-radius: 90px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, rgba(255, 182, 193, 0.8), rgba(255, 228, 225, 1)); /* Degradado en tonos rosas */
+    overflow-x: hidden;
+}
+
+.links {
+    text-decoration: none;
+    color: #ffffff; /* Texto blanco */
+    background-color: #ff69b4; /* Rosa brillante */
+    padding: 10px; /* Aumentar el padding para mejor clicabilidad */
+    border-radius: 20px;
+    transition: background-color 0.3s ease; /* Transición suave al cambiar de color */
+}
+
+.links:hover {
+    background-color: #ff1493; /* Rosa más oscuro al pasar el mouse */
+}
+
+.fndgris {
+    background-color: rgba(253, 211, 237, 0);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.menu {
+    background-color: #ff1493; /* Rosa oscuro */
+    position: fixed;
+    top: 0;
+    left: -340px; 
+    height: 100vh; 
+    width: 300px;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+    transition: left 0.5s ease-in-out;
+    z-index: 2;
+}
+
+#menubtn {
+    display: none; /* Ocultar checkbox */
+}
+
+label {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #ffffff; /* Fondo blanco para el botón */
+    color: #ff1493; /* Texto rosa oscuro */
+    border: none;
+    cursor: pointer;
+    border-radius: 1000px;
+    position: fixed;
+    top: 20px;
+    left: 10px;
+    z-index: 3;
+    transition: all 0.5s ease-in-out; /* Transición suave */
+}
+
+/* Animación para el botón */
+#menubtn:checked ~ label {
+    animation: moverBoton 0.5s cubic-bezier(0.25,1,0.5,1) forwards;
+}
+
+#menubtn:not(:checked) ~ label {
+    animation: regresarBoton 0.5s cubic-bezier(0.5,0,0.75,0) forwards;
+}
+
+@keyframes moverBoton {
+    from { left: 10px; }
+    to { left: 350px; }
+}
+
+@keyframes regresarBoton {
+    from { left: 350px; }
+    to { left: 10px; }
+}
+
+/* Animación del fondo gris */
+#menubtn:checked ~ .fndgris {
+    animation: mostrarFondo 0.5s ease-in-out forwards;
+}
+
+#menubtn:not(:checked) ~ .fndgris {
+    animation: ocultarFondo 0.5s ease-in-out forwards;
+}
+
+@keyframes mostrarFondo {
+   from { background-color: rgba(0,0,0,0); }
+   to { background-color: rgba(255,105,180,0.5); } /* Fondo rosa semitransparente */
+}
+
+@keyframes ocultarFondo {
+   from { background-color: rgba(255,105,180,0.5); }
+   to { background-color: rgba(255,105,180,0); }
+}
+
+#menubtn:checked ~ .menu {
+   animation: mostrarMenu 0.5s ease-in-out forwards;  
+}
+
+#menubtn:not(:checked) ~ .menu {
+   animation: ocultarMenu 0.5s ease-in-out forwards;  
+}
+
+@keyframes mostrarMenu {
+   from { left:-340px; }
+   to { left : 0; }
+}
+
+@keyframes ocultarMenu {
+   from { left : 0; }
+   to { left : -340px; }
+}
+
+.fade-in {
+   position:absolute; 
+   top : 0; 
+   left : 0; 
+   width :100%; 
+   height :100%; 
+   background-color:black; 
+   animation : fadeInEffect 7s forwards; 
+   position : fixed; 
+   pointer-events:none; 
+   z-index :4; 
+}
+
+/* Animación que hace que el fondo se transparenta */
+@keyframes fadeInEffect {
+   from{opacity :1;} 
+   to{opacity :0;}
+}
+
+@font-face {
+   font-family:'Mochreh'; 
+   src:url(Mochreh.otf);
+}
+.s1 {
+    font-family: 'Rockwell Extra Bold';
+    font-size: x-large;
+    font-style: italic;
+    animation: titulo 4s ease-in-out forwards;
+    z-index: 5;
+    color: rgb(255, 0, 43);
+    position: fixed;
+    top: 50%; /* Empieza desde el centro */
+    left: 50%; /* Empieza desde el centro */
+    transform: translate(-50%, -50%); /* Centrado */
+    font-size: 48px;                /* Tamaño de la fuente */
+    color: #fff;                     /* Color del texto */
+    text-shadow: 
+        0 0 5px #fff,               /* Brillo blanco */
+        0 0 10px #ffffff,           /* Brillo púrpura */
+        0 0 15px #fd2a71,           /* Más brillo púrpura */
+        0 0 20px #fca1c7;           /* Brillo intenso */
+
+}
+#menubtn:checked ~ .s1{
+    font-size: 60px;               /* Tamaño del texto */
+    font-weight: bold;             /* Negrita para el texto */
+    color: #fff;                   /* Color base del texto (blanco) */
+    text-align: center;            /* Alineación centrada */
+    letter-spacing: 2px;   
+    text-shadow: 0 0 50px rgba(255, 255, 255, 0.7);;
+}
+@keyframes titulo {
+    0% {
+        top: 50%; /* Empieza en el centro */
+        left: 50%; /* Centrado */
+        font-size: 80px; /* Tamaño inicial */
+        transform: translate(-50%, -50%); /* Centrado */
+        color: #fff;
+    }
+    60% {
+        top: 30%; /* Se queda en la misma posición */
+        font-size: 80px; /* Se mantiene grande por 2 segundos */
+        transform: translate(-50%, -30%); /* Ajuste de centrado */
+    }
+    70% {
+        top: 40%; /* Movimiento rápido hacia atrás */
+        font-size: 70px; /* Reducción de tamaño */
+        transform: translate(-50%, -40%);
+    }   
+    85%{
+        top: 10%; /* Movimiento rápido hacia atrás */
+        font-size: 55px; /* Reducción de tamaño */
+        transform: translate(-50%, -10%);
+    }
+    100% {
+        top: 10px; /* Se coloca en la parte superior */
+        font-size: 500%; /* Tamaño final */
+        transform: translate(-50%, 0); /* Ajuste final de centrado */
+        position: absolute;
+        color: rgb(255, 0, 85);
+    }
+}
+----
+
+footer{
+   background-color:#ffe4fb; /* Rosa claro para el pie de página */
+   width :100%;
+   padding :100px;
+   box-shadow :0 -10px5px rgba(0 ,0 ,0 ,0.078);
+}
+
+/* Estilo general para la tabla */
+table {
+   width :800px;
+   border-collapse :collapse; /* Elimina los espacios entre celdas */
+   margin :20px ;  
+   font-family :Arial,sans-serif;
+   background-color:#fff ; /* Fondo blanco para la tabla */
+}
+
+/* Estilo para las celdas de la tabla */
+th ,td {
+   padding :10px;text-align:left;border :1px solid #ddd ; /* Borde suave */
+}
+
+/* Estilo para los encabezados */
+th {
+   background-color:#ff69b4 ; /* Color de fondo rosa claro para encabezados */
+   color:white ; /* Color del texto blanco */
+}
+
+/* Estilo para las filas alternas */
+tr:nth-child(even) {
+   background-color:#f2f2f2 ; /* Color de fondo gris claro para filas pares */
+}
+
+/* Estilo al pasar el mouse por encima de las filas */
+tr:hover {
+     background-color:#dddddd ; /* Cambia el color cuando pasas el mouse por encima */
+}
+
+/* Animaciones adicionales y estilos personalizados */
+
+.fnd {
+     animation:fafa3s ease-in-out forwards ;
+     animation-delay :7s ;
+     font-size :300px ;
+     opacity :0 ;
+     color :rgba(105 ,105 ,105 ,0.572) ;
+     position:absolute ;
+     left :10px ;/*640px*/
+     z-index :-5 ; /* Ajuste si otros elementos tienen z-index alto */    
+}
+@keyframes fafa{
+     from{left :10px ; opacity :0;}
+     to{left :640px ; opacity :1;}
+}
+.info1 {
+     position:absolute ;
+     left :50px ;
+     opacity :0 ; /* Comienza invisible */
+     animation :aparicion2s ease-in-out forwards ;
+     animation-delay :4s ;
+}
+@keyframes aparicion {
+     from {left :1px ; opacity :0;} 
+     to {left :50px ; opacity :1;} 
+}
+.s4{
+     text-align:right ;
+     left :700px ;
+}
+.info2{
+    align-items: justify;
+    animation: aparicion2 2s ease-in-out forwards;
+    animation-delay: 4s;
+    text-align: justify;
+    position: absolute;
+    left: 1500px;
+    opacity: 0;
+}
+@keyframes aparicion2{
+    0%{
+        opacity: 0;
+        left: 1500;
+    }
+    100%{
+        opacity: 1;
+        left: 500px;
+    }
+}
+
+
+.s3 {
+    font-family: Cy GroteK key;
+    font-size: 100%;
+    width: 90%;        /* Ancho de la caja */
+    height: 700px;       /* Alto de la caja */
+    border: 2px solid #ffffff; /* Borde de la caja */
+    background-color: #ffffff; /* Color de fondo */
+    padding: 20px;      /* Espaciado interno */
+    margin: 20px;       /* Margen externo */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    position: absolute;
+    left: 50px;
+    opacity: 0; /* Comienza invisible */
+    animation: aparicion 2s ease-in-out forwards;
+    animation-delay: 4s;
+    justify-content: center;
+}
+
+    .grismath {
+        
+        color: #fff;                     /* Color del texto */
+        text-shadow: 
+            0 0 5px #fff,               /* Brillo blanco */
+            0 0 10px #e24486,           /* Brillo púrpura */
+            0 0 15px #e24486,           /* Más brillo púrpura */
+            0 0 20px #e24486;           /* Brillo intenso */
+
+        text-align: right; /* Justifica el texto "GRIS MATH" a la derecha */
+        
+    }
+    
+    .s3 h2 {
+        font-size: 600%; /* Tamaño del texto del título */
+        color: #ff1493; /* Color del texto del título */
+        margin: 0; /* Eliminar márgenes por defecto */
+        text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+        font-family: Cy GroteK key;
+        font-family: Cy GroteK key;
+        
+    }
+    
+    .decorativo {
+        border: none; /* Eliminar el borde por defecto */
+        height: 40px; /* Altura del hr */
+        background-color: #ff69b457; /* Color del hr */
+        margin: 10px 0; /* Espaciado superior e inferior */
+    }
+
+
+.s3 h2 {
+    font-size: 600%; /* Tamaño del texto del título */
+    color: #ff1493; /* Color del texto del título */
+    margin: 0; /* Eliminar márgenes por defecto */
+    text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+}
+
+.decorativo {
+    border: none; /* Eliminar el borde por defecto */
+    height: 40px; /* Altura del hr */
+    background-color: #ff69b457; /* Color del hr */
+    margin: 10px 0; /* Espaciado superior e inferior */
+}
+.letras{
+    text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+    font-size: x-large;
+       
+}
+
+.sec4 {
+    font-family: 'Cy GroteK key';
+    font-size: 100%;
+    width: 90%; /* Ancho de la caja */
+    height: 700px; /* Alto de la caja */
+    border: 2px solid #ffffff; /* Borde de la caja */
+    background-color: #ffffff; /* Color de fondo */
+    padding: 20px; /* Espaciado interno */
+    margin: 20px; /* Margen externo */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    position: absolute;
+    left: calc(50px + calc(90% + 40px)); /* Ajustar posición para que no se superponga con sec3*/
+    opacity: 0; /* Comienza invisible */
+    animation: aparicion2s ease-in-out forwards;
+    animation-delay: 4s;
+}
+   
+        .container {
+            font-size: 100%; /* Tamaño del texto del título */
+            color: #000000; /* Color del texto del título */
+            margin: 0; /* Eliminar márgenes por defecto */
+            text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+
+        }
+   
+
+        .card {
+            margin: 10px 0; /* Espaciado entre tarjetas en vertical */
+        }
+
+        .text-bg-primary {
+            background-color: #ffb3d9 !important; /* Rosa claro */
+            
+        }
+
+        .text-bg-info {
+            background-color: #ff99cc !important; /* Rosa medio */
+        }
+
+        .text-bg-success {
+            background-color: #ff66b3 !important; /* Rosa más intenso */
+        }
+
+        .text-bg-warning {
+            background-color: #ff3399 !important; /* Rosa oscuro */
+        }
+    
+        .flex-container {
+            display: flex;
+            justify-content: space-between; /* Espacio entre tarjetas y la imagen */
+            align-items: flex-start; /* Alinear al inicio verticalmente */
+        }
+
+        .image-container {
+            text-align: right; /* Justificar imagen a la derecha */
+            margin-left: 20px; /* Espacio entre las tarjetas y la imagen */
+        }
+
+        .image-container img {
+            max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+            height: auto; /* Mantiene la proporción de la imagen */
+            width: 400px; /* Ajusta el tamaño según sea necesario */
+        }
+        .section{
+            font-family: Cy GroteK key;
+            font-size: x-large;
+        }
+        
+.tabla {
+    font-family: Cy GroteK key;
+    font-size: 100%;
+    width: 90%;        /* Ancho de la caja */
+    height: 400px;       /* Alto de la caja */
+    border: 2px solid #ffffff; /* Borde de la caja */
+    background-color: #edf0f2; /* Color de fondo */
+    padding: 20px;      /* Espaciado interno */
+    margin: 20px;       /* Margen externo */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    position: absolute;
+    left: 50px;
+    opacity: 0; /* Comienza invisible */
+    animation: aparicion 2s ease-in-out forwards;
+    animation-delay: 4s;
+    justify-content: center;
+}
+     .FONCION{
+        font-size: 534px;
+        font-family:Cy GroteK key ;
+        color: #fca1c7;
+     }
