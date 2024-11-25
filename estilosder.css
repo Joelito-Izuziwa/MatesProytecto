@@ -1,3 +1,46 @@
+@keyframes up {
+    0% {
+        transform: translateY(0); 
+    }
+    100% {
+        transform: translateY(-10px); 
+    }
+}
+@keyframes dwn{
+    0%{
+        transform: translateY(-10px); 
+    }
+    100%{
+        transform: translateY(0); 
+    }
+}
+
+.links:hover, #logo:hover{
+    animation: up 0.3s ease-in-out forwards;
+}
+.links:hover{
+    background-color: #b7427d;
+}
+
+.links:not(:hover), #logo:not(:hover){
+    animation: dwn 0.3s ease-in-out forwards;
+}
+
+.lnkscaja{
+    background-color: #ffffff96;
+    border-radius: 20px;
+}
+
+.links {
+    display: inline-block;
+    text-decoration: none;
+    color: #fbfbfb;
+    background-color: #ff69b4;
+    padding: 10px;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
 #logoid{
     border-radius: 90px;
 }
@@ -5,17 +48,14 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(to right, rgba(106, 106, 106, 0.689), white );
+    background: linear-gradient(to right, rgba(250, 152, 166, 0.8), rgba(255, 228, 225, 1));
     overflow-x: hidden;
-    background: -gr;
 }
-.links{
-    text-decoration: none;
-    color: #f2f2f2;
-    background-color: #246692;
-    padding: 5px;
-    border-radius: 20px;
+
+.links:active{
+    background-color: #a64777;
 }
+
 .fndgris {
     background-color: rgba(0, 0, 0, 0);
     position: fixed;
@@ -28,7 +68,7 @@ body {
 }
 
 .menu {
-    background-color: indigo;
+    background-color: #ff1493;
     position: fixed;
     top: 0;
     left: -340px; 
@@ -47,8 +87,8 @@ body {
 label {
     padding: 10px 20px;
     font-size: 16px;
-    background-color: #3498db;
-    color: white;
+    background-color: #ffffff;
+    color: #ff1493;
     border: none;
     cursor: pointer;
     border-radius: 1000px;
@@ -59,7 +99,6 @@ label {
     transition: all 0.5s ease-in-out;
 }
 
-/* Animación para el botón */
 #menubtn:checked ~ label {
     animation: moverBoton 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
@@ -166,6 +205,7 @@ label {
     opacity: 0;
     }
 }
+
 @font-face {
     font-family: 'Mochreh';
     src: url(Mochreh.otf);
@@ -176,8 +216,18 @@ label {
     z-index: 5;
     color: rgb(0, 0, 0);
     position: fixed;
+    color: rgb(255, 0, 43);
+    position: fixed;
     top: 50%; /* Empieza desde el centro */
     left: 50%; /* Empieza desde el centro */
+    transform: translate(-50%, -50%); /* Centrado */
+    font-size: 48px;                /* Tamaño de la fuente */
+    color: #fff;                     /* Color del texto */
+    text-shadow: 
+        0 0 5px #fff,               /* Brillo blanco */
+        0 0 10px #ffffff,           /* Brillo púrpura */
+        0 0 15px #fd2a71,           /* Más brillo púrpura */
+        0 0 20px #fca1c7;    
     transform: translate(-50%, -50%); /* Centrado */
 }
 #menubtn:checked ~ .s1{
@@ -216,14 +266,18 @@ label {
         font-size: 30px; /* Tamaño final */
         transform: translate(-50%, 0); /* Ajuste final de centrado */
         position: absolute;
-        color: black;
+        color: rgb(255, 0, 85);
     }
 }
+
 footer{
-    background-color: #3498db;
-    width: 100%;
-    padding: 100px;
-    box-shadow: 0 -10px 5px rgba(0, 0, 0, 0.078);
+    background-color:#ffe4fb; /* Rosa claro para el pie de página */
+    width :100%;
+    padding :100px;
+    box-shadow :0 -10px5px rgba(0 ,0 ,0 ,0.078);
+    position: relative;
+    top: 1200px;
+    z-index: -1;
 }
 /* Estilo general para la tabla */
 table {
@@ -238,6 +292,7 @@ table {
     left: 1px;
     position: absolute;
     opacity: 0;
+    z-index: -1;
 }
 @keyframes apariciontab{
     0%{
@@ -250,27 +305,25 @@ table {
     }
 }
   /* Estilo para las celdas de la tabla */
-th, td {
-    padding: 10px;
-    text-align: left;
-    border: 1px solid #ddd; /* Borde suave */
-}
-  
-  /* Estilo para los encabezados */
-th {
-    background-color: indigo; /* Color de fondo verde */
-    color: white; /* Color del texto blanco */
-}
-  
-  /* Estilo para las filas alternas */
-tr:nth-child(even) {
-    background-color: #f2f2f2; /* Color de fondo gris claro para filas pares */
-}
-  
-  /* Estilo al pasar el mouse por encima de las filas */
-  tr:hover {
-    background-color: #ddd; /* Cambia el color cuando pasas el mouse por encima */
-}
+  th ,td {
+    padding :10px;text-align:left;border :1px solid #ddd ; /* Borde suave */
+ }
+ 
+ /* Estilo para los encabezados */
+ th {
+    background-color:#ff69b4 ; /* Color de fondo rosa claro para encabezados */
+    color:white ; /* Color del texto blanco */
+ }
+ 
+ /* Estilo para las filas alternas */
+ tr:nth-child(even) {
+    background-color:#f2f2f2 ; /* Color de fondo gris claro para filas pares */
+ }
+ 
+ /* Estilo al pasar el mouse por encima de las filas */
+ tr:hover {
+      background-color:#dddddd ; /* Cambia el color cuando pasas el mouse por encima */
+ }
 
 .fnd {
     animation: fafa 3s ease-in-out forwards;
@@ -299,6 +352,22 @@ tr:nth-child(even) {
     opacity: 0; /* Comienza invisible */
     animation: aparicion 2s ease-in-out forwards;
     animation-delay: 4s;
+    z-index: -1;
+    text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+    font-size: x-large;
+    width: 90%;        /* Ancho de la caja */
+    height: 700px;       /* Alto de la caja */
+    border: 2px solid #ffffff; /* Borde de la caja */
+    background-color: #ffffff; /* Color de fondo */
+    padding: 20px;      /* Espaciado interno */
+    margin: 20px;       /* Margen externo */
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+    position: absolute;
+    left: 50px;
+    opacity: 0; /* Comienza invisible */
+    animation: aparicion 2s ease-in-out forwards;
+    animation-delay: 4s;
+    justify-content: center;
 }
 
 @keyframes aparicion {
@@ -321,16 +390,77 @@ tr:nth-child(even) {
     animation-delay: 4s;
     text-align: justify;
     position: absolute;
-    left: 1500px;
+    left: 600px;
     opacity: 0;
 }
 @keyframes aparicion2{
     0%{
         opacity: 0;
-        left: 1500;
+        left: 600;
     }
     100%{
         opacity: 1;
-        left: 500px;
+        left: 420px;
     }
+}
+
+hr{
+    border: none; /* Eliminar el borde por defecto */
+    height: 40px; /* Altura del hr */
+    background-color: #ff69b457; /* Color del hr */
+    margin: 10px 0;
+    z-index: -1;
+}
+.container {
+    font-size: 100%; /* Tamaño del texto del título */
+    color: #000000; /* Color del texto del título */
+    margin: 0; /* Eliminar márgenes por defecto */
+    text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+
+}
+
+.card {
+    margin: 10px 0; /* Espaciado entre tarjetas en vertical */
+}
+
+.text-bg-primary {
+    background-color: #ffb3d9 !important; /* Rosa claro */
+    
+}
+
+.text-bg-info {
+    background-color: #ff99cc !important; /* Rosa medio */
+}
+
+.text-bg-success {
+    background-color: #ff66b3 !important; /* Rosa más intenso */
+}
+
+.text-bg-warning {
+    background-color: #ff3399 !important; /* Rosa oscuro */
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre tarjetas y la imagen */
+    align-items: flex-start; /* Alinear al inicio verticalmente */
+}
+
+.image-container {
+    text-align: right; /* Justificar imagen a la derecha */
+    margin-left: 20px; /* Espacio entre las tarjetas y la imagen */
+}
+
+.image-container img {
+    max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    width: 400px; /* Ajusta el tamaño según sea necesario */
+}
+.section{
+    font-family: Cy GroteK key;
+    font-size: x-large;
+}
+
+.decorativo{
+    z-index: -0;
 }
