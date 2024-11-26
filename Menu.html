@@ -7,17 +7,57 @@
     <link rel="stylesheet" href="DISEÑO.css">
     <style>
         body {
-  background-image: url('BANNER_page-0001.jpg'); /* Reemplaza con la ruta de tu imagen */
-  background-repeat: repeat; /* Hace que el fondo se repita tanto horizontal como verticalmente */
-  background-attachment: fixed; /* Hace que el fondo permanezca fijo al hacer scroll (opcional) */
-  background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
-  margin: 0; /* Elimina los márgenes predeterminados */
-  padding: 0;
-}
-        .s1{
-            background-image: none;
-            top: 100%;
+    margin: 0;
+    padding: 0;
+    background-image: url('BANNER_page-0001.jpg'); /* Cambia por la ruta de tu imagen */
+    background-repeat: repeat-y; /* Se repite hacia abajo */
+    background-size: auto 100%; /* Ajusta el ancho para cubrir todo el ancho de la página */
+    background-attachment: scroll; /* El fondo se desplaza con el contenido */
+    font-family: 'Times New Roman', Times, serif;
+    }
+    video{
+        border-radius: 20px;
+        box-shadow: #000 5px;
+    }
+    .caja{
+        width: 1200px;
+        background-color: #ffffff;
+        padding: 30px;
+        animation: aparicion 2s ease-in-out forwards;
+        animation-delay: 4s;
+        opacity: 0;
+        top: 100%;
+
+    }
+    .s1{
+        position: absolute;
+    }
+    @keyframes aparicion {
+        0%{
+            transform: translateX(0);
+            opacity: 0;
         }
+        100%{
+            transform: translateX(-10px);
+            opacity: 1;
+        }
+    }
+    .strong{
+        font-size: 90px;
+        color: #ff1493;
+    }
+    .IntroDer{
+        font-size: 40px;
+        align-items: justify;
+    }
+    .IntroLim{
+        font-size: 40px;
+        align-items: justify;
+    }
+    .infor1{
+        font-size: 40px;
+        align-items: justify;
+    }
     </style>
 </head>
 <body>
@@ -28,7 +68,7 @@
     <div class="menu">
         <center>
             <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
-            <span><a href="DERIVADAS60.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
+            <span><a href="derivadas.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
             <span><a href="limites.html"class="links">¿Qué son los límites?</a></span><br><br><br><br>
             <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
             <span><a href="#"class="links">Didáctico de lineales</a></span><br><br><br><br><br><br><br><br>
@@ -37,16 +77,50 @@
         </center>
     </div>
     <div class="fndgris"></div>
-    <section class="sec0">
-        <center><h1 class="s1"><strong>Menú</strong></h1></center>
-    </section>
-    <br><br><br><br><br><br><br><br><br>
-    </div>
+            <center>
+                <center><h1 class="s1"><strong>Menú</strong></h1></center>
+                <div class="caja">
+                    <br><br><br><br>
+                    <br><br><br><br><br><br><br><hr class="decorativo"><br><br>
+                <div class="infor1">
+                    Hola! Ahora mismo te encuentras en nuestra página de matemáticas, en donde te mostraremos de los temas siguientes:
+                <ul>
+                    <li><strong>Límites</strong></li>
+                    <br>y <br><br>
+                    <li><strong>Derivadas</strong></li>
+                </ul>
+                <br>Aquí abajo se te mostraran unas pequeñas introducciones a los temas junto con videos hechos por nuestro miembro mas experto en los temas!
+                </div>
+                <br><br>
+                <hr class="decorativo">
+                <br><br>
+                <div class="IntroDer">
+                    <strong class="strong">Las derivadas:</strong> <br><br><br>
+                    Las derivadas, clave del cálculo diferencial, miden la tasa de cambio de una función respecto a una variable. Representan geométricamente la pendiente de la tangente a una curva en un punto y se definen mediante límites. Son esenciales en ciencia, economía e ingeniería para analizar y predecir fenómenos dinámicos.
+                    <br><br><br>
+                    <center><video src="HACE 30 AÑOS NO PODRÍAS HACER ESTO EN MATES.mp4" controls="20px" class="vid1"></video></center>
+                </div>
+                <br><br>
+                <hr class="decorativo">
+                <br><br>
+                <div class="IntroLim">
+                    <strong class="strong">Los límites:</strong> <br><br><br>
+                    Los límites, base del cálculo, describen el comportamiento de una función cuando su variable se aproxima a un valor específico. Permiten analizar continuidad, derivadas e integrales, siendo esenciales para modelar cambios y fenómenos en matemáticas y ciencias.
+                    <br><br><br>
+                    <center><video src="If Programming Was An Anime.mp4" controls="20px" class="vid2"></video></center>
 
-    <script>
-        window.onload = function() {
-            window.scrollTo(0, 0); // Desplaza la página a la parte superior
-        };
-    </script>
+                    <br><br><br>
+
+                    
+                </div>
+                <br><br>
+                </div>
+                <footer>
+                    <center>JL Group! Menu - Matemáticas</center><br>
+                    <center>
+                        <strong>Para poder profundizar mas en los temas, tenemos más páginas dedicadas a ello! <br>
+                            Dale click al boton del menú y aprende!</strong>
+                    </center>
+                </footer>
 </body>
 </html>
