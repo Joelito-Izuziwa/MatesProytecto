@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Límites y Juego de Derivadas</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #282c34;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .game-section {
+            background: linear-gradient(135deg, #120520, #b1c6eb);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .question {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+        .options button {
+            background-color: #ffffff;
+            color: #282c34;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.2s;
+        }
+        .options button:hover {
+            background-color: #f1f1f1;
+            transform: scale(1.05);
+        }
+        .result {
+            font-size: 16px;
+            margin-top: 15px;
+        }
+        #restartButton {
+            background-color: #ff4757; 
+        }
+        #restartButton:hover {
+            background-color: #ff6b81; 
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ejercicios de Límites</h1>
+<div class="game-section">
+    <div class="question" id="question"></div>
+    <div class="options"></div>
+    <div class="result" id="result"></div>
+    <button id="skipButton" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
+    <button id="restartButton" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+</div>
+
+<script>
+
+const questions = [
+    { question: "1) ¿Cuál es el límite de x^2-x+4 cuando x tiende a 2?", answer: "-2" },
+    { question: "2) ¿Cuál es el límite de x^3-6x cuando x tiende a 0?", answer: "0" },
+    { question: "3) ¿Cuál es el límite de (x^2+3x)/(2x+1) cuando x tiende a 1?", answer: "4/3" },
+    { question: "4) ¿Cuál es el límite de x^2+2x+5 cuando x tiende a 3?", answer: "20" },
+    { question: "5) ¿Cuál es el límite de (-2x+3)/(x+2) cuando x tiende a 4?", answer: "-5/6" },
+    { question: "6) ¿Cuál es el límite de -9^2+3x cuando x tiende a 1?", answer: "-84" },
+    { question: "7) ¿Cuál es el límite de (x+3)/(x+6) cuando x tiende a 0?", answer: "1/2" },
+    { question: "8) ¿Cuál es el límite de (-5^3+2x^2-3)/(x+1) cuando x tiende a 0?", answer: "-3" },
+    { question: "9) ¿Cuál es el límite de √(x+4) cuando x tiende a 1?", answer: "√5" },
+    { question: "10) ¿Cuál es el límite de √x/√(4x) cuando x tiende a 0?", answer: "1/2" },
+];
+
+let currentQuestionIndex = 0;
+
+function loadQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        endGame();
+        return;
+    }
+
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById('question').textContent = currentQuestion.question;
+
+    const options = [currentQuestion.answer, "x", "-2", "3x"];
+    shuffleArray(options);
+
+    const buttonsContainer = document.querySelector('.options');
+    buttonsContainer.innerHTML = ''; 
+    options.forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = () => checkAnswer(option, currentQuestion);
+        buttonsContainer.appendChild(button);
+    });
+
+    document.getElementById('result').textContent = '';
+}
+
+function checkAnswer(selectedAnswer, currentQuestion) {
+    const correctAnswer = currentQuestion.answer;
+
+    const resultElement = document.getElementById('result');
+    
+    if (selectedAnswer === correctAnswer) {
+        resultElement.textContent = '¡Correcto!';
+        resultElement.style.color = '#52d731';
+    } else {
+        resultElement.textContent = 'Incorrecto.';
+        resultElement.style.color = '#fc0808'; 
+    }
+    
+    currentQuestionIndex++;
+    
+    setTimeout(loadQuestion, 1000);
+}
+
+function endGame() {
+    document.getElementById('question').textContent = '¡Juego terminado!';
+    document.getElementById('result').textContent += ' ¡Fin del juego!';
+    document.getElementById('restartButton').style.display = 'inline-block';
+}
+
+function restartGame() {
+    currentQuestionIndex = 0;
+    loadQuestion();
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
