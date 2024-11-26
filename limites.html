@@ -1,76 +1,193 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <link rel="stylesheet" href="DISEÑO.css">
+    <style>
+        .s1{
+            position: absolute;
+            top: 220px;
+        }
+        h1{
+            align-items: center;
+        }
+        .caja{
+            z-index: -1;
+            font-family: Cy GroteK key;
+            font-size: 100%;
+            width: 90%;        /* Ancho de la caja */
+            height: 2400px;       /* Alto de la caja */
+            border: 2px solid #ffffff; /* Borde de la caja */
+            background-color: #ffffff; /* Color de fondo */
+            padding: 20px;      /* Espaciado interno */
+            margin: 20px;       /* Margen externo */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            position: absolute;
+            left: 50px;
+            opacity: 0; /* Comienza invisible */
+            animation: aparicion 2s ease-in-out forwards;
+            animation-delay: 4s;
+            justify-content: center;
+        }
+
+        @keyframes aparicion{
+            0%{
+                transform: translatex(0);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(-20px);
+                opacity: 1;
+            }
+        }
+        h2{
+            z-index: -1;
+        font-size: 600%; /* Tamaño del texto del título */
+        color: #ff1493; /* Color del texto del título */
+        margin: 0; /* Eliminar márgenes por defecto */
+        text-align: left; /* Asegura que h2 esté alineado a la izquierda */
+        font-family: Cy GroteK key;
+        font-family: Cy GroteK key;
+        }
+        .infoent1{
+            align-items: center;
+            animation: aparicion2 2s ease-in-out forwards;
+            animation-delay: 4s;
+            left: 1500px;
+            opacity: 0;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 30px;
+        }
+        .infoent2{
+            align-items: center;
+            animation: aparicion2 2s ease-in-out forwards;
+            animation-delay: 4s;
+            left: 1500px;
+            font-size: 30px;
+            opacity: 0;
+            font-family: 'Times New Roman', Times, serif
+        }
+        footer{
+            opacity: 0;
+        }
+        .ejemplo{
+            align-items: center;
+            animation: aparicion2 2s ease-in-out forwards;
+            animation-delay: 4s;
+            left: 1500px;
+            font-size: 30px;
+            opacity: 0;
+            font-family: 'Times New Roman', Times, serif
+        }
+    </style>
 </head>
-<style>
-    h1{
-        text-align: center;
-    }
-    body{
-        text-align: center
-    }
-    .ejemplo{
-        text-align: justify;
-    } 
-</style>
 <body>
-    <h1>
-        Limite de una funcion
-    </h1>
-    <p>De modo informal  diremos que se habia de limite cuandi se quiere describir procesos de comportamiento <br>
-    tendencial entre magnitude variables.por ejemplo, la determinacion de la velocidad de un cuerpo movil en un <br> tiempo dado, el grado de inclinacion de una curva en un punto individual, la rapidez de crecimiento poblacional de <br> una ciudad en un año, y la determinacion de areas bajo la curva, definida sobre un intervalo cerrado.
-    </p>
-    <h1>
-        Propiedades de limites
-    </h1>
-    <p>
-        <ol>
-            <li>
-                si <i>c</i> es la funcion constante, el limite es de <i>c</i> cuando <i>x</i> tiende a <i>a</i> es igual a <i>c</i>: <br>
-                lim<i>c</i>=<i>c</i> <br>
-                <sup><i>x→a</i></sup>
-                <br>
-                <br>
-            </li>
-            <div class="ejemplo">
-                ejemplo: <br>
-                <p>Hallar lim 4. <br>
-                --------<sup><i>x→3</i></sup></p>
-                <p>Puesto a que lim<i>c</i>=<i>c</i>, tenemos que lim 4=4. <br>
-                  -----------------<sup>x→a</sup>  --------------------<sup><i>x→3</i></sup>
-                    <br> <br>1
-                La grafica permite visualizar esta propiedad: el imite de 4 siempre <br> es 4, ya que se trata de una funcion constante.</p>
-               /*  imagenes*/
-               <br> <br>
-               <li>
-                <p>El limite de <i>x</i> cuando <i>x</i> tiende a  <i>a</i> es igual a <i>a</i>: <br> <br>
-                lim<i>x</i>=<i>a</i> <br>
-                <sup><i>x→a</i></sup></p>
-                
-               </li>
-               <p>Ejemplo: <br>
-                hallar el limite de <i>x</i>, cuando <i>x→4</i> <br>
-                puesto que lim <i>x</i>= <i>a</i>tenemos lim <i>x</i>=4
-               </p>
-               <p>veamos este limite con una tabla numerica</p>
-               */ tabla*/ <br> <br>
-               <li>
-                El limite del producto de una funcion constante por otra funcion cuando <i>x</i> <br>
-                tiende a <i>a</i>, es igual al producto de la funcion constane por el limite de a funcion:
-               </li>
-               <p>lim<i>c*f(x)</i>=<i>c</i>lim</p> <br>
-               
-               <p>Ejemplo:
-                Hallar 2(3<i>x</i>-2) <br>
-                <sup>x→1</sup>
-               </p>
-             <p>lim 2(3<i>x</i>-2)=2(3x-2)=2(3(-1)-2)=-10</p>
-              
+    
+        <div class="fnd">GRIS <br> MATH</div>
+    <div class="fade-in"></div>
+    <input type="checkbox" id="menubtn">
+    <label for="menubtn"><img src="menu (1).png" alt="menulogo" width="30px" height="30px"></label>
+    <div class="menu">
+        <center>
+            <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
+            <span><a href="DERIVADAS60.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
+            <span><a href="limites.html"class="links">Ya estás aquí!</a></span><br><br><br><br>
+            <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
+            <span><a href="Limitesgod.html"class="links">Didáctico de lineales</a></span><br><br><br><br><br><br><br><br>
+            <hr><br>
+            
+        </center>
+    </div>
+    <div class="fndgris"></div>
+    <section class="sec0">
+        <center><h1 class="s1"><strong>Límites</strong></h1></center>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <center>
+            <div class="caja">
+
+                <div>
+                    <center><h2>Limite de <br> una funcion</h2></center>
+                </div>
+
+                <hr class="decorativo">
+
+                <div class="infoent1">
+                    <p>De modo informal  diremos que se habia de limite cuandi se quiere describir procesos de comportamiento <br>
+                        tendencial entre magnitude variables.por ejemplo, la determinacion de la velocidad de un cuerpo movil en un <br> tiempo dado, el grado de inclinacion de una curva en un punto individual, la rapidez de crecimiento poblacional de <br> una ciudad en un año, y la determinacion de areas bajo la curva, definida sobre un intervalo cerrado.
+                        </p>
+                </div>
+        
+                    <hr class="decorativo">
+
+            <h2>
+                Propiedades de <br>limites
+            </h2>
+        <br><hr class="decorativo"><hr>
+                <p>
+                    <ol>
+                        <li>
+                           <div class="infoent2">
+                            si <i>c</i> es la funcion constante, el limite es de <i>c</i> cuando <i>x</i> tiende a <i>a</i> es igual a <i>c</i>: <br>
+                            lim<i>c</i>=<i>c</i> <br>
+                            <sup><i>x→a</i></sup>
+                            <br>
+                            <br>
+                        </li>
+                        <div class="ejemplo">
+                            ejemplo: <br>
+                            <p>Hallar lim 4. <br>
+                            --------<sup><i>x→3</i></sup></p>
+                            <p>Puesto a que lim<i>c</i>=<i>c</i>, tenemos que lim 4=4. <br>
+                              -----------------<sup>x→a</sup>  --------------------<sup><i>x→3</i></sup>
+                                <br> <br>1
+                            La grafica permite visualizar esta propiedad: el imite de 4 siempre <br> es 4, ya que se trata de una funcion constante.</p>
+                           /*  imagenes*/
+                           <br> <br>
+                           <li>
+                            <p>El limite de <i>x</i> cuando <i>x</i> tiende a  <i>a</i> es igual a <i>a</i>: <br> <br>
+                            lim<i>x</i>=<i>a</i> <br>
+                            <sup><i>x→a</i></sup></p>
+                            
+                           </li>
+                           <p>Ejemplo: <br>
+                            hallar el limite de <i>x</i>, cuando <i>x→4</i> <br>
+                            puesto que lim <i>x</i>= <i>a</i>tenemos lim <i>x</i>=4
+                           </p>
+                           <p>veamos este limite con una tabla numerica</p>
+                           */ tabla*/ <br> <br>
+                           <li>
+                            El limite del producto de una funcion constante por otra funcion cuando <i>x</i> <br>
+                            tiende a <i>a</i>, es igual al producto de la funcion constane por el limite de a funcion:
+                           </li>
+                           <p>lim<i>c*f(x)</i>=<i>c</i>lim</p> <br>
+                           
+                           <p>Ejemplo:
+                            Hallar 2(3<i>x</i>-2) <br>
+                            <sup>x→1</sup>
+                           </p>
+                         <p>lim 2(3<i>x</i>-2)=2(3x-2)=2(3(-1)-2)=-10</p>
+                          
+                        </div>
+                    </ol>
+                           </div>
+                        </div>
+                </p>
             </div>
-        </ol>
-    </p>
+    
+    </center>
+
+    <footer>
+        <center>
+            <strong>JL Group! - Matemáticas</strong>
+        </center>
+    </footer>
+    <script>
+        window.onload = function() {
+            window.scrollTo(0, 0); // Desplaza la página a la parte superior
+        };
+    </script>
 </body>
 </html>
