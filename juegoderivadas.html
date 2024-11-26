@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicios de Límites</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+        .game-section {
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            max-width: 600px;
+        }
+        .question {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        .options button {
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        .options button:hover {
+            background-color: #0056b3;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        #restartButton {
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #restartButton:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Ejercicios de Límites</h1>
+<div class="game-section">
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="result" id="result"></div>
+    <button id="restartButton" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+</div>
+
+<script>
+const questions = [
+    { question: "1) ¿Cuál es el límite de x^2 - x + 4 cuando x tiende a 2?", answer: "6" },
+    { question: "2) ¿Cuál es el límite de x^3 - 6x cuando x tiende a 0?", answer: "0" },
+    { question: "3) ¿Cuál es el límite de (x^2 + 3x) / (2x + 1) cuando x tiende a 1?", answer: "4/3" },
+    { question: "4) ¿Cuál es el límite de x^2 + 2x + 5 cuando x tiende a 3?", answer: "20" },
+    { question: "5) ¿Cuál es el límite de (-2x + 3) / (x + 2) cuando x tiende a 4?", answer: "-5/6" },
+    { question: "6) ¿Cuál es el límite de -9x^2 + 3x cuando x tiende a 1?", answer: "-84" },
+    { question: "7) ¿Cuál es el límite de (x + 3) / (x + 6) cuando x tiende a 0?", answer: "1/2" },
+    { question: "8) ¿Cuál es el límite de (-5x^3 + 2x^2 - 3) / (x + 1) cuando x tiende a 0?", answer: "-3" },
+    { question: "9) ¿Cuál es el límite de √(x + 4) cuando x tiende a 1?", answer: "√5" },
+    { question: "10) ¿Cuál es el límite de √x / √(4x) cuando x tiende a 0?", answer: "1/2" },
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function loadQuestion() {
+    if (currentQuestionIndex >= questions.length) {
+        endGame();
+        return;
+    }
+
+    const currentQuestion = questions[currentQuestionIndex];
+    document.getElementById('question').textContent = currentQuestion.question;
+
+    const options = [currentQuestion.answer, "x", "-2", "3x"];
+    shuffleArray(options);
+
+    const buttonsContainer = document.getElementById('options');
+    buttonsContainer.innerHTML = '';
+    options.forEach(option => {
+        const button = document.createElement('button');
+        button.textContent = option;
+        button.onclick = () => checkAnswer(option, currentQuestion);
+        buttonsContainer.appendChild(button);
+    });
+
+    document.getElementById('result').textContent = '';
+}
+
+function checkAnswer(selectedAnswer, currentQuestion) {
+    const correctAnswer = currentQuestion.answer;
+    const resultElement = document.getElementById('result');
+
+    if (selectedAnswer === correctAnswer) {
+        resultElement.textContent = '¡Correcto!';
+        resultElement.style.color = '#52d731';
+        score++;
+    } else {
+        resultElement.textContent = 'Incorrecto. La respuesta correcta era: ' + correctAnswer;
+        resultElement.style.color = '#fc0808';
+    }
+
+    currentQuestionIndex++;
+
+    setTimeout(loadQuestion, 1000);
+}
+
+function endGame() {
+    document.getElementById('question').textContent = '¡Juego terminado!';
+    document.getElementById('options').innerHTML = '';
+    document.getElementById('result').textContent = `Tu puntuación final es: ${score} de ${questions.length}`;
+    document.getElementById('restartButton').style.display = 'inline-block';
+}
+
+function restartGame() {
+    currentQuestionIndex = 0;
+    score = 0;
+    document.getElementById('restartButton').style.display = 'none';
+    loadQuestion();
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+loadQuestion();
+</script>
+
+</body>
+</html>
+
