@@ -31,6 +31,7 @@
     }
     .s1{
         position: absolute;
+        z-index: 1;
     }
     @keyframes aparicion {
         0%{
@@ -57,6 +58,13 @@
     .infor1{
         font-size: 40px;
         align-items: justify;
+        z-index: -1;
+    }
+    .atras{
+        z-index: -1;
+    }
+    .s1{
+        background-image: none;
     }
     </style>
 </head>
@@ -68,17 +76,18 @@
     <div class="menu">
         <center>
             <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
-            <span><a href="derivadas.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
+            <span><a href="DERIVADAS60.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
             <span><a href="limites.html"class="links">¿Qué son los límites?</a></span><br><br><br><br>
             <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
             <span><a href="#"class="links">Didáctico de lineales</a></span><br><br><br><br><br><br><br><br>
             <hr><br>
             
         </center>
-    </div>
+    </div class="atras" z-index="-1">
     <div class="fndgris"></div>
             <center>
-                <center><h1 class="s1"><strong>Menú</strong></h1></center>
+                <center><h1 class="s1"><strong>Menú</strong></h1></center><br>
+               <div>
                 <div class="caja">
                     <br><br><br><br>
                     <br><br><br><br><br><br><br><hr class="decorativo"><br><br>
@@ -115,6 +124,7 @@
                 </div>
                 <br><br>
                 </div>
+               </div>
                 <footer>
                     <center>JL Group! Menu - Matemáticas</center><br>
                     <center>
@@ -122,5 +132,11 @@
                             Dale click al boton del menú y aprende!</strong>
                     </center>
                 </footer>
+
+                <script>
+                    window.onload = function() {
+                        window.scrollTo(0, 0); // Desplaza la página a la parte superior
+                    };
+                </script>
 </body>
 </html>

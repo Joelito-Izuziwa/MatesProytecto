@@ -4,11 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memorama de Matemáticas</title>
-    <link rel="stylesheet" href="C:\Users\Dell\Downloads\GRIS MATH\MatesProytecto-main\memorama.css">
+    <link rel="stylesheet" href="memorama.css">
+    <link rel="stylesheet" href="DISEÑO.css">
+    <style>
+        body{
+            margin: 0;
+    padding: 0;
+    background-image: url('BANNER_page-0001.jpg'); /* Cambia por la ruta de tu imagen */
+    background-repeat: repeat-y; /* Se repite hacia abajo */
+    background-size: auto 100%; /* Ajusta el ancho para cubrir todo el ancho de la página */
+    background-attachment: scroll; /* El fondo se desplaza con el contenido */
+    font-family: 'Times New Roman', Times, serif;
+        }
+        .caja{
+            font-family: Cy GroteK key;
+            font-size: 100%;
+            width: 90%;        /* Ancho de la caja */
+            border: 2px solid #ffffff; /* Borde de la caja */
+            background-color: #ffffff; /* Color de fondo */
+            padding: 20px;      /* Espaciado interno */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1); /* Sombra */
+            position: absolute;
+            left: 50px;
+            opacity: 0; /* Comienza invisible */
+            animation: aparicion 2s ease-in-out forwards;
+            animation-delay: 4s;
+            justify-content: center;
+            top: 600px;
+        }
+
+        @keyframes aparicion{
+            0%{
+                transform: translatex(0);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(-20px);
+                opacity: 1;
+            }
+        }
+        .s1{
+            background-image: none;
+        }
+        a{
+            background-color: #ff1493;
+            color: #ffffff;
+            border-radius: 20px;
+            padding: 10px;
+            text-decoration: none;
+        }
+        footer{
+            width: 1400px;
+            opacity: 1;
+            z-index: 1;
+            position: absolute;
+            top: 1400px;
+            left: 0px;
+        }
+    </style>
 </head>
 <body>
 
-    <h1>Memorama de Matemáticas</h1>
+    <div class="fnd">GRIS <br> MATH</div>
+    <div class="fade-in"></div>
+    <input type="checkbox" id="menubtn">
+    <label for="menubtn"><img src="menu (1).png" alt="menulogo" width="30px" height="30px"></label>
+    <div class="menu">
+        <center>
+            <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
+            <span><a href="DERIVADAS60.html"class="links">Ya estás aquí!</a></span><br><br><br><br>
+            <span><a href="limites.html"class="links">¿Qué son los límites?</a></span><br><br><br><br>
+            <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
+            <span><a href="Limitesgod.html"class="links">Didáctico de lineales</a></span><br><br><br><br><br><br><br><br>
+            <hr><br>
+            
+        </center>
+    </div>
+    <div class="fndgris"></div>
+    <section class="sec0">
+        <center><h1 class="s1"><strong>Didáctico de derivadas!</strong></h1></center>
+       
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><hr class="decorativo"><br><br><br>
+    <div class="caja">
+        <h1>Memorama de Matemáticas</h1>
+        <br>
+        <hr class="decorativo"><br>
     <div class="memory-game">
         <!-- Derivada y su significado -->
         <div class="memory-card" data-concept="derivada">
@@ -97,5 +178,22 @@
     <br><br><br>
     <button id="restart-button">Reiniciar Juego</button>
     <script src="C:\Users\Dell\Downloads\GRIS MATH\MatesProytecto-main\memorama.js"></script>
+    </div>
+
+    <center>
+        <footer>
+            JL Group! - Matemáticas
+    
+            <br><br><br><br><br>
+
+            <a href="DERIVADAS60.html">Devuelta a la información!</a>
+        </footer>
+    </center>
+
+    <script>
+        window.onload = function() {
+            window.scrollTo(0, 0); // Desplaza la página a la parte superior
+        };
+    </script>
 </body>
 </html>

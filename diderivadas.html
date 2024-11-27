@@ -5,6 +5,115 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home JS-Proyect</title>
     <link rel="stylesheet" href="DISEÑO.css">
+    <style>
+        
+         body {
+    background-image: url('BANNER_page-0001.jpg');
+    background-repeat: no-repeat; /* No repetir el fondo */
+    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
+    background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
+}
+        .s1{
+            background-image: none;
+        }
+        .dida {
+            background: linear-gradient(135deg, rgb(255, 182, 193), rgba(255, 228, 225, 1));
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra */
+        max-width: 600px;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+
+        top: 600px;
+        left: 900px;
+            animation: aparicion 2s ease-in-out forwards;
+            animation-delay: 4s;
+            opacity: 0;
+    }
+
+    .dida .question {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+
+    .dida .options button {
+        background-color: #ffffff; /* Fondo blanco */
+        color: #ff6b81; /* Texto azul */
+        border: none;
+        border-radius: 8px;
+        padding: 10px 15px;
+        margin: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        font-size: 16px;
+    }
+
+    .another{
+        align-items: center;
+        background-color: #ffffff;
+        padding: 10px;
+        position: absolute;
+        width: 1400px;
+        height: 400px;
+        top: 500px;
+        left: 50px;
+    }
+
+    .dida .options button:hover {
+        background-color: #f1f1f1; /* Fondo más claro al pasar el ratón */
+        transform: scale(1.05); /* Efecto de zoom */
+    }
+
+    .dida .result {
+        font-size: 18px;
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+    }
+
+    .dida .result.correct {
+        background-color: #52d731; /* Verde para correcto */
+        color: #fff;
+    }
+
+    .dida .result.incorrect {
+        background-color: #fc0808; /* Rojo para incorrecto */
+        color: #fff;
+    }
+
+    .dida .skip-button, 
+    .dida .restart-button {
+        background-color: #ff4757; /* Botón rojo */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+
+    .dida .skip-button:hover, 
+    .dida .restart-button:hover {
+        background-color: #ff6b81; /* Cambio de color al pasar el ratón */
+    }
+    footer{
+            width: 1400px;
+            opacity: 1;
+            z-index: 1;
+            position: absolute;
+            top: 1000px;
+            left: 0px;
+        }
+    </style>
 </head>
 <body>
     <div class="fnd">GRIS <br> MATH</div>
@@ -14,31 +123,40 @@
     <div class="menu">
         <center>
             <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
-            <span><a href="DERIVADAS60.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
+            <span><a href="DERIVADAS60.html"class="links">Ya estás aquí!</a></span><br><br><br><br>
             <span><a href="limites.html"class="links">¿Qué son los límites?</a></span><br><br><br><br>
-            <span><a href="diderivadas.html"class="links">Ya estás aquí!</a></span><br><br><br><br>
+            <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
             <span><a href="Limitesgod.html"class="links">Didáctico de lineales</a></span><br><br><br><br><br><br><br><br>
             <hr><br>
             
         </center>
     </div>
     <div class="fndgris"></div>
-    <br><br
-    <div class="Didactico">
-            <div class="container">
-                <h1>Juego de Derivadas</h1>
-                <div class="question" id="question">¿Cuál es la derivada de x^2?</div>
-                <div class="options">
-                    <button onclick="checkAnswer('2x')">2x</button>
-                    <button onclick="checkAnswer('x^2')">x^2</button>
-                    <button onclick="checkAnswer('x')">x</button>
-                    <button onclick="checkAnswer('2')">2</button>
-                </div>
-                <div class="result" id="result"></div>
-                <button id="skipButton" class="skip-button" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
-                <button id="restartButton" class="restart-button" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+    <section class="sec0">
+        <center><h1 class="s1"><strong>Didáctico de derivadas!</strong></h1></center>
+    </section>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+               <div class="another">
+                <center>
+                    <h2>Actividad <br>
+                    didáctica</h2>
+                    <hr class="decorativo">
+                    <div class="dida">
+                        <div class="question" id="question">¿Cuál es la derivada de x^2?</div>
+                        <div class="options">
+                            <button onclick="checkAnswer('2x')">2x</button>
+                            <button onclick="checkAnswer('x^2')">x^2</button>
+                            <button onclick="checkAnswer('x')">x</button>
+                            <button onclick="checkAnswer('2')">2</button>
+                        </div>
+                        <div class="result" id="result"></div>
+                        <button id="skipButton" class="skip-button" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
+                        <button id="restartButton" class="restart-button" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+                    </div>
             </div>
-    </div>
+                    </div>
+                   </center>
+               </div>
 
     <script>
         const questions = [
@@ -133,7 +251,22 @@
         loadQuestion();
 
 
-        alert("CSS en progreso");
+
+    </script>
+    <footer>
+        <center>
+            <strong>JL Group! - Matemáticas</strong>
+    
+            <br><br><br><br>
+    
+    
+            <a href="limites.html">devuelta a la información!</a>
+        </center>
+    </footer>
+    <script>
+        window.onload = function() {
+            window.scrollTo(0, 0); // Desplaza la página a la parte superior
+        };
     </script>
 </body>
 
