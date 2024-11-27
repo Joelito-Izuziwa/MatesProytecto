@@ -62,6 +62,7 @@
             left: 0px;
         }
     </style>
+
 </head>
 <body>
 
@@ -71,7 +72,7 @@
     <label for="menubtn"><img src="menu (1).png" alt="menulogo" width="30px" height="30px"></label>
     <div class="menu">
         <center>
-            <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
+            <a id="logo" href="index.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
             <span><a href="DERIVADAS60.html"class="links">Ya estás aquí!</a></span><br><br><br><br>
             <span><a href="limites.html"class="links">¿Qué son los límites?</a></span><br><br><br><br>
             <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
@@ -177,7 +178,7 @@
     </div>
     <br><br><br>
     <button id="restart-button">Reiniciar Juego</button>
-    <script src="C:\Users\Dell\Downloads\GRIS MATH\MatesProytecto-main\memorama.js"></script>
+
     </div>
 
     <center>
@@ -195,5 +196,99 @@
             window.scrollTo(0, 0); // Desplaza la página a la parte superior
         };
     </script>
+    <script>
+        const cards = document.querySelectorAll('.memory-card');
+const restartButton = document.getElementById('restart-button');
+
+let hasFlippedCard = false;
+let lockBoard = false;
+let firstCard, secondCard;
+
+function flipCard() {
+    if (lockBoard) return;
+    if (this === firstCard) return;
+
+    this.classList.add('flip');
+
+    if (!hasFlippedCard) {
+        hasFlippedCard = true;
+        firstCard = this;
+        return;
+    }
+
+    secondCard = this;
+    checkForMatch();
+}
+
+function checkForMatch() {
+    const isMatch = firstCard.dataset.concept === secondCard.dataset.concept;
+
+    isMatch ? disableCards() : unflipCards();
+}
+
+function disableCards() {
+    firstCard.removeEventListener('click', flipCard);
+    secondCard.removeEventListener('click', flipCard);
+
+    resetBoard();
+}
+
+function unflipCards() {
+    lockBoard = true;
+
+    setTimeout(() => {
+        firstCard.classList.remove('flip');
+        secondCard.classList.remove('flip');
+
+        resetBoard();
+    }, 1500);
+}
+
+function resetBoard() {
+    [hasFlippedCard, lockBoard] = [false, false];
+    [firstCard, secondCard] = [null, null];
+}
+
+function shuffleCards() {
+    cards.forEach(card => {
+        const randomPos = Math.floor(Math.random() * cards.length);
+        card.style.order = randomPos;
+    });
+}
+
+function restartGame() {
+    // Volver a poner todas las cartas boca abajo
+    cards.forEach(card => {
+        card.classList.remove('flip');
+        card.addEventListener('click', flipCard); // Reactivar clic en todas las cartas
+    });
+
+    // Rebarajar las cartas
+    shuffleCards();
+
+    // Reiniciar el estado del tablero
+    resetBoard();
+}
+
+// Barajar las cartas al inicio
+shuffleCards();
+
+// Añadir el evento a las cartas
+cards.forEach(card => card.addEventListener('click', flipCard));
+
+// Añadir el evento al botón de reinicio
+restartButton.addEventListener('click', restartGame);
+
+    </script>
+    <footer>
+        <center>
+            <strong>JL Group! - Matemáticas</strong>
+    
+            <br><br><br><br>
+    
+    
+            <a href="limites.html">devuelta a la información!</a>
+        </center>
+    </footer>
 </body>
 </html>

@@ -6,6 +6,15 @@
     <title>Calculadora de Límites y Juego de Derivadas</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.0.0/math.min.js"></script>
     <style>
+        .esc{
+            background-color: #fff;
+            padding: 20px;
+            width:1400px;
+            position: absolute;
+            top: 500px;
+            left: 50px;
+
+        }
         body {
     background-image: url('BANNER_page-0001.jpg');
     background-repeat: no-repeat; /* No repetir el fondo */
@@ -106,15 +115,14 @@
         background-color: #ff6b81; /* Cambio de color al pasar el ratón */
     }
     footer{
-            width: 1400px;
+            width: 800px;
             opacity: 1;
             z-index: 1;
             position: absolute;
-            top: 1000px;
-            left: 0px;
-        }
+            top: 600px;
 
-@keyframes aparicion{
+        }
+        @keyframes aparicion{
             0%{
                 transform: translatex(0);
                 opacity: 0;
@@ -164,6 +172,9 @@
         #restartButton:hover {
             background-color: #ff6b81; 
         }
+        .s1{
+            background-image: none;
+        }
     </style>
     <link rel="stylesheet" href="DISEÑO.css">
 </head>
@@ -175,7 +186,7 @@
     <label for="menubtn"><img src="menu (1).png" alt="menulogo" width="30px" height="30px"></label>
     <div class="menu">
         <center>
-            <a id="logo" href="Menu.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
+            <a id="logo" href="index.html"><img src="Math.png" alt="Logo-Home" title="Logo - Home" width="170px" height="170px" id="logoid"></a><br><br><br><br><br><br>
             <span><a href="DERIVADAS60.html"class="links">¿Qué son las derivadas?</a></span><br><br><br><br>
             <span><a href="limites.html"class="links">¿Qué son los lineales?</a></span><br><br><br><br>
             <span><a href="diderivadas.html"class="links">Didáctico de derivadas</a></span><br><br><br><br>
@@ -190,14 +201,18 @@
     </section>
     <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
-<h1>Ejercicios de Límites</h1>
-<div class="game-section">
-    <div class="question" id="question"></div>
-    <div class="options"></div>
-    <div class="result" id="result"></div>
-    <button id="skipButton" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
-    <button id="restartButton" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
-</div>
+    <center>
+        <div class="esc">
+            <h1>Ejercicios de Límites</h1>
+    <div class="game-section">
+        <div class="question" id="question"></div>
+        <div class="options"></div>
+        <div class="result" id="result"></div>
+        <button id="skipButton" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
+        <button id="restartButton" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+    </div>
+        </div>
+    </center>
 
 <script>
 
@@ -279,5 +294,16 @@ function shuffleArray(array) {
 loadQuestion();
 </script>
 
+
+<footer>
+    <center>
+        <strong>JL Group! - Matemáticas</strong>
+
+        <br><br><br><br>
+
+
+        <a href="memorama.html">Juego didáctico!</a>
+    </center>
+</footer>
 </body>
 </html>
