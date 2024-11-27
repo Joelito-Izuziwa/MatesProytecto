@@ -12,6 +12,108 @@
     background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
     background-attachment: fixed; /* La imagen permanece fija al hacer scroll */
 }
+        .s1{
+            background-image: none;
+        }
+        .dida {
+            background: linear-gradient(135deg, rgb(255, 182, 193), rgba(255, 228, 225, 1));
+        border-radius: 15px;
+        padding: 20px;
+        margin: 20px auto;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra */
+        max-width: 600px;
+        text-align: center;
+        font-family: 'Arial', sans-serif;
+        color: #fff;
+
+        top: 600px;
+        left: 900px;
+            animation: aparicion 2s ease-in-out forwards;
+            animation-delay: 4s;
+            opacity: 0;
+    }
+
+    .dida .question {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 15px;
+        color: #fff;
+    }
+
+    .dida .options button {
+        background-color: #ffffff; /* Fondo blanco */
+        color: #ff6b81; /* Texto azul */
+        border: none;
+        border-radius: 8px;
+        padding: 10px 15px;
+        margin: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        font-size: 16px;
+    }
+
+    .another{
+        align-items: center;
+        background-color: #ffffff;
+        padding: 10px;
+        position: absolute;
+        width: 1400px;
+        height: 400px;
+        top: 500px;
+        left: 50px;
+        z-index: -1;
+    }
+
+    .dida .options button:hover {
+        background-color: #f1f1f1; /* Fondo más claro al pasar el ratón */
+        transform: scale(1.05); /* Efecto de zoom */
+    }
+
+    .dida .result {
+        font-size: 18px;
+        margin-top: 15px;
+        padding: 10px;
+        border-radius: 8px;
+        display: inline-block;
+    }
+
+    .dida .result.correct {
+        background-color: #52d731; /* Verde para correcto */
+        color: #fff;
+    }
+
+    .dida .result.incorrect {
+        background-color: #fc0808; /* Rojo para incorrecto */
+        color: #fff;
+    }
+
+    .dida .skip-button, 
+    .dida .restart-button {
+        background-color: #ff4757; /* Botón rojo */
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        margin-top: 15px;
+        display: inline-block;
+        transition: background-color 0.3s;
+    }
+
+    .dida .skip-button:hover, 
+    .dida .restart-button:hover {
+        background-color: #ff6b81; /* Cambio de color al pasar el ratón */
+    }
+    footer{
+            width: 1400px;
+            opacity: 1;
+            z-index: 1;
+            position: absolute;
+            top: 1000px;
+            left: 0px;
+        }
+
 @keyframes aparicion{
             0%{
                 transform: translatex(0);

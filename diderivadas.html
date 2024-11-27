@@ -62,6 +62,7 @@
         height: 400px;
         top: 500px;
         left: 50px;
+        z-index: -1;
     }
 
     .dida .options button:hover {
@@ -144,115 +145,99 @@
                     <div class="dida">
                         <div class="question" id="question">¿Cuál es la derivada de x^2?</div>
                         <div class="options">
-                            <button onclick="checkAnswer('2x')">2x</button>
-                            <button onclick="checkAnswer('x^2')">x^2</button>
-                            <button onclick="checkAnswer('x')">x</button>
-                            <button onclick="checkAnswer('2')">2</button>
-                        </div>
-                        <div class="result" id="result"></div>
-                        <button id="skipButton" class="skip-button" onclick="nextQuestion()" style="display: none;">Pasar</button><br>
-                        <button id="restartButton" class="restart-button" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
+                            <div class="game-section">
+                                <div class="question" id="question"></div>
+                                <div class="options" id="options"></div>
+                                <div class="result" id="result"></div>
+                                <button id="restartButton" onclick="restartGame()" style="display: none;">Reiniciar Juego</button>
                     </div>
             </div>
                     </div>
                    </center>
                </div>
 
-    <script>
-        const questions = [
-            { question: "¿Cuál es la derivada de x^2?", answer: "2x" },
-            { question: "¿Cuál es la derivada de 3x^3?", answer: "9x^2" },
-            { question: "¿Cuál es la derivada de 3x^3-9?", answer: "9x^2-0" },
-            { question: "¿Cuál es la derivada de -2x+5?", answer: "-2+0" },
-            { question: "¿Cuál es la derivada de -5x^-7?", answer: "35x^-8" },
-        ];
-
-        let currentQuestionIndex = 0;
-
-        function loadQuestion() {
-            const currentQuestion = questions[currentQuestionIndex];
-            document.getElementById('question').textContent = currentQuestion.question;
-
-            // Opciones aleatorias
-            const options = [
-                currentQuestion.answer,
-                getRandomAnswer(currentQuestion.answer),
-                getRandomAnswer(currentQuestion.answer),
-                getRandomAnswer(currentQuestion.answer),
-            ];
-
-            shuffleArray(options);
-
-            // Actualizar las opciones en los botones
-            const buttons = document.querySelectorAll('.options button');
-            buttons.forEach((button, index) => {
-                button.textContent = options[index];
-                button.onclick = () => checkAnswer(options[index], currentQuestion);
-            });
-
-            // Ocultar el botón "Pasar" y "Reiniciar"
-            document.getElementById('skipButton').style.display = 'none';
-            document.getElementById('restartButton').style.display = 'none';
-            document.getElementById('result').textContent = '';
-        }
-
-        function checkAnswer(selectedAnswer, currentQuestion) {
-            const correctAnswer = currentQuestion.answer;
-            let resultText = '';
-            if (selectedAnswer === correctAnswer) {
-                resultText = '¡Correcto!';
-            } else {
-                resultText = 'Incorrecto.';
-            }
-
-            document.getElementById('result').textContent = resultText;
-
-            currentQuestionIndex++;
-            if (currentQuestionIndex < questions.length) {
-                setTimeout(() => {
-                    document.getElementById('result').textContent = '';
-                    loadQuestion();
-                }, 1000);
-            } else {
-                endGame();
-            }
-        }
-
-        function endGame() {
-            document.getElementById('question').textContent = '¡Juego terminado!';
-            document.getElementById('result').textContent = '¡Fin del juego!';
-            document.getElementById('skipButton').style.display = 'none';
-            document.getElementById('restartButton').style.display = 'inline-block'; // Mostrar el botón "Reiniciar"
-        }
-
-        function restartGame() {
-            currentQuestionIndex = 0;
-            // Limpiar la interfaz y cargar la primera pregunta
-            loadQuestion();
-        }
-
-        function getRandomAnswer(correctAnswer) {
-            const randomAnswers = ["x", "2x", "x^2", "3x^2", "ln(x)", "e^x", "sin(x)", "cos(x)"];
-            let randomAnswer;
-            do {
-                randomAnswer = randomAnswers[Math.floor(Math.random() * randomAnswers.length)];
-            } while (randomAnswer === correctAnswer);
-            return randomAnswer;
-        }
-
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-        }
-
-        // Iniciar el juego
-        loadQuestion();
-
-
-
-    </script>
+               <script>
+               const questions = [
+                   { question: "1) ¿Cuál es el límite de x^2 - x + 4 cuando x tiende a 2?", answer: "6" },
+                   { question: "2) ¿Cuál es el límite de x^3 - 6x cuando x tiende a 0?", answer: "0" },
+                   { question: "3) ¿Cuál es el límite de (x^2 + 3x) / (2x + 1) cuando x tiende a 1?", answer: "4/3" },
+                   { question: "4) ¿Cuál es el límite de x^2 + 2x + 5 cuando x tiende a 3?", answer: "20" },
+                   { question: "5) ¿Cuál es el límite de (-2x + 3) / (x + 2) cuando x tiende a 4?", answer: "-5/6" },
+                   { question: "6) ¿Cuál es el límite de -9x^2 + 3x cuando x tiende a 1?", answer: "-84" },
+                   { question: "7) ¿Cuál es el límite de (x + 3) / (x + 6) cuando x tiende a 0?", answer: "1/2" },
+                   { question: "8) ¿Cuál es el límite de (-5x^3 + 2x^2 - 3) / (x + 1) cuando x tiende a 0?", answer: "-3" },
+                   { question: "9) ¿Cuál es el límite de √(x + 4) cuando x tiende a 1?", answer: "√5" },
+                   { question: "10) ¿Cuál es el límite de √x / √(4x) cuando x tiende a 0?", answer: "1/2" },
+               ];
+               
+               let currentQuestionIndex = 0;
+               let score = 0;
+               
+               function loadQuestion() {
+                   if (currentQuestionIndex >= questions.length) {
+                       endGame();
+                       return;
+                   }
+               
+                   const currentQuestion = questions[currentQuestionIndex];
+                   document.getElementById('question').textContent = currentQuestion.question;
+               
+                   const options = [currentQuestion.answer, "x", "-2", "3x"];
+                   shuffleArray(options);
+               
+                   const buttonsContainer = document.getElementById('options');
+                   buttonsContainer.innerHTML = '';
+                   options.forEach(option => {
+                       const button = document.createElement('button');
+                       button.textContent = option;
+                       button.onclick = () => checkAnswer(option, currentQuestion);
+                       buttonsContainer.appendChild(button);
+                   });
+               
+                   document.getElementById('result').textContent = '';
+               }
+               
+               function checkAnswer(selectedAnswer, currentQuestion) {
+                   const correctAnswer = currentQuestion.answer;
+                   const resultElement = document.getElementById('result');
+               
+                   if (selectedAnswer === correctAnswer) {
+                       resultElement.textContent = '¡Correcto!';
+                       resultElement.style.color = '#52d731';
+                       score++;
+                   } else {
+                       resultElement.textContent = 'Incorrecto. La respuesta correcta era: ' + correctAnswer;
+                       resultElement.style.color = '#fc0808';
+                   }
+               
+                   currentQuestionIndex++;
+               
+                   setTimeout(loadQuestion, 1000);
+               }
+               
+               function endGame() {
+                   document.getElementById('question').textContent = '¡Juego terminado!';
+                   document.getElementById('options').innerHTML = '';
+                   document.getElementById('result').textContent = `Tu puntuación final es: ${score} de ${questions.length}`;
+                   document.getElementById('restartButton').style.display = 'inline-block';
+               }
+               
+               function restartGame() {
+                   currentQuestionIndex = 0;
+                   score = 0;
+                   document.getElementById('restartButton').style.display = 'none';
+                   loadQuestion();
+               }
+               
+               function shuffleArray(array) {
+                   for (let i = array.length - 1; i > 0; i--) {
+                       const j = Math.floor(Math.random() * (i + 1));
+                       [array[i], array[j]] = [array[j], array[i]];
+                   }
+               }
+               
+               loadQuestion();
+               </script>
     <footer>
         <center>
             <strong>JL Group! - Matemáticas</strong>
