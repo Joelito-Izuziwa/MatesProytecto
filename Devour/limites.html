@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>GRIS MATH</title>
+	<link rel="stylesheet" href="fonts/fa/css/all.css">
+	<link rel="stylesheet" href="style-global.css">
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="style-responsive.css">
+	<script src="js/jquery.js"></script>
+	<script src="js/scripts.js"></script>
+</head>
+<body id="home">
+
+
+
+	<header>
+		<div class="container flex-sb-aic">
+			
+			<a href="#" class="logo">
+				<img src="logo-removebg-preview (1).png" alt="GRIS MATH">
+			</a>
+
+			<div class="menublock">
+				<a href="javascript:void();" class="showmenu"><i class="fa-solid fa-bars"></i></a>
+				<a href="javascript:void();" class="hidemenu"><i class="fa-solid fa-xmark"></i></a>
+				<nav id="headnav">
+					
+						<ul>
+							<li>Inicio</li>
+							<li>Derivadas</li>
+							<li>Limites</li>
+							<li>Didacticos</li>
+							<li>Contacto</li>
+						</ul>
+					
+				</nav>
+			</div>
+
+		</div>
+	</header>
+	<!--header-->
+
+
+
+
+
+	<section class="banner">
+		<div class="container">
+
+			<div class="visual">
+				<img src="images/limites.webp" alt="" class="img-default">
+			</div>
+
+			<div class="text">
+				<h1>Límites</h1>
+				<p>
+					 Hablamos de límite cuando se quiere describir procesos de comportamiento tendencial entre magnitudes variables. <br><br>
+                    Por ejemplo: la determinación de la velocidad de un cuerpo móvil en un tiempo dado, el grado de inclinación de una curva en un punto específico, la rapidez de crecimiento poblacional
+                     de una ciudad en un año, y la determinación de áreas bajo la curva definida sobre un intervalo cerrado.
+				</p>
+				<a href="#"> &nbsp; <i class="fa-solid fa-arrow-right-long"></i></a>
+			</div>
+
+
+		</div>
+	</section>
+	<!--banner-->
+	<section class="funciones">
+	<div class="visual">
+	<div class="text">
+		<h1>Tipos de límites:</h1>
+	</div>
+	<div class="tarjetas-container">
+		<div class="tarjeta">
+			<img src="images/lim1.png" alt="Imagen 1" class="tarjeta-imagen">
+			<div class="tarjeta-texto">
+				<h3>Si el límite de una función cuando ( x ) se aproxima a un punto ( a ) es un valor finito ( L ), se dice que el límite existe.</h3>
+				<p></font></p>
+			</div>
+		</div>
+		<div class="tarjeta">
+			<img src="images/lim2.png" alt="Imagen 1" class="tarjeta-imagen">
+			<div class="tarjeta-texto">
+				<h3>Si el valor de la función crece sin límite cuando ( x ) se acerca a un punto, decimos que el límite es infinito.</h3>
+				</font>
+			</div>
+		</div>
+		<div class="tarjeta">
+			<img src="images/lim3.png" alt="Imagen 2" class="tarjeta-imagen">
+			<div class="tarjeta-texto">
+				<h3>Describe el comportamiento de una función cuando ( x ) se aleja hacia valores extremadamente grandes o pequeños.</h3>
+				<p></font></p>
+			</div>
+		</div>
+		
+		<div class="tarjeta">
+			<img src="images/lim4.png" alt="Imagen 3" class="tarjeta-imagen">
+			<div class="tarjeta-texto">
+				<h3> Formas como ( 0/0 ) o ( ∞/∞ ) requieren el uso de las reglas de L'Hopital para ser resueltas. </h3>
+				</font>
+			</div>
+		</div>
+	</div>
+</div>
+</section>
+
+
+
+	<section class="about" id="about">
+		<div class="container">
+			
+
+			<div class="text flex-sb">
+				<h2>¿Cómo Se Calcula un Límite?</h2>
+
+				<div class="carrusel">
+					<div class="slides">
+						<div class="slide"><img src="images/limites1.png" alt="Imagen 1"></div>
+						<div class="slide"><img src="images/limites2.png" alt="Imagen 2"></div>
+					
+					</div>
+					<button class="prev" onclick="mover(-1)">&#10094;</button>
+					<button class="next" onclick="mover(1)">&#10095;</button>
+				</div>
+				<script>let index = 0;
+
+					function mover(n) {
+						index += n;
+						mostrarSlide(index);
+					}
+					
+					function mostrarSlide(n) {
+						const slides = document.querySelectorAll('.slide');
+						if (n >= slides.length) index = 0;
+						if (n < 0) index = slides.length - 1;
+					
+						const desplazamiento = -index * 100;
+						document.querySelector('.slides').style.transform = `translateX(${desplazamiento}%)`;
+					}
+					
+					setInterval(() => mover(1), 3000); // Cambia automáticamente cada 3 segundos</script>
+			</div>
+			<div class="visual">
+				<video src="Ramirez.mp4" muted loop autoplay controls></video>
+			</div>
+
+
+		</div>
+	</section>
+	<!--about-->
+
+
+
+
+
+
+
+	<section class="services" id="services">
+		<div class="container">
+
+			<h2>Propiedades de limites</h2>
+			
+
+			<div class="services-items flex-sb">
+
+				<div class="item">
+		
+					<h3>
+                        Límite usando sustitución directa
+					</h3>
+					<p>
+                        Ejemplo:
+Calculemos el límite de la función <br><br>
+𝑓
+(
+𝑥
+)
+=
+2
+𝑥
++
+3
+f(x)=2x+3 cuando <br>
+𝑥
+→
+2
+x→2:
+
+lim
+⁡
+𝑥
+→
+2
+(
+2
+𝑥
++
+3
+)
+x→2
+lim
+​
+ (2x+3)<br><br>
+Solución:<br>
+f(2)=2(2)+3=4+3=7<br><br><br><br><br><br>
+					</p>
+				</div>
+
+				<div class="item type2">
+					
+					<h3>Ejemplo 2</h3>
+					<p><b>
+						Supongamos que tenemos la siguiente función:<br>
+
+f(x) = 2x + 3<br>Queremos calcular:<br>Solución:<br>
+Identificar el límite: La función es f(x) = 2x + 3 y estamos buscando el límite cuando x tiende a 4.
+Sustituir directamente el valor de x = 4:
+
+limx→4 (2x + 3)
+dx d​(x)=1
+f(4) = 2(4) + 3 = 8 + 3 = 11<br><br>
+Resultado: El límite es 11.
+<br>
+limx→4 (2x + 3) = 11</b><br><br><br>
+					</p>
+				</div>
+
+		
+	</section>
+	
+
+	<footer>
+		<div class="container">
+			
+			<div class="copyright">JJLL | GRACIAS</div>
+
+			<div class="social">
+				<a href="#"><i class="fa-brands fa-facebook"></i></a>
+				<a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+				<a href="#"><i class="fa-brands fa-instagram"></i></a>
+			</div>
+
+		</div>
+	</footer>
+	<!--footer-->
+</body>
+</html>
