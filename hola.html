@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Límites</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input, textarea {
+            margin: 5px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Límites</h1>
+    <p>Ingresa la función y el punto al que deseas evaluar el límite:</p>
+    
+    <div>
+        <label for="funcion">Función (f(x)):</label>
+        <input type="text" id="funcion" placeholder="Ejemplo: x^2 + 3*x + 2">
+    </div>
+    <div>
+        <label for="punto">Punto (x →):</label>
+        <input type="number" id="punto" placeholder="Ejemplo: 2">
+    </div>
+    <button onclick="calcularLimite()">Calcular Límite</button>
+
+    <div class="result">
+        <p id="resultado">El resultado será mostrado aquí.</p>
+        <textarea id="procedimiento" readonly placeholder="Procedimiento"></textarea>
+    </div>
+
+    <script>
+        function calcularLimite() {
+            // Obtener valores del usuario
+            const funcionStr = document.getElementById("funcion").value;
+            const punto = parseFloat(document.getElementById("punto").value);
+
+            if (!funcionStr || isNaN(punto)) {
+                alert("Por favor, ingresa una función y un punto válido.");
+                return;
+            }
+
+            try {
+                // Crear expresión matemática
+                const expr = math.parse(funcionStr); // Analiza la función
+                const f = x => expr.evaluate({ x }); // Función evaluable
+
+                // Evaluar el límite (sustitución directa)
+                const limite = f(punto);
+
+                // Procedimiento
+                const procedimiento = `
+Función: f(x) = ${funcionStr}
+Paso 1: Sustituir x por ${punto}:
+         f(${punto}) = ${funcionStr.replace(/x/g, `(${punto})`)}
+Paso 2: Calcular el resultado:
+         Límite = ${limite}
+                `;
+                document.getElementById("resultado").textContent = `Límite: ${limite}`;
+                document.getElementById("procedimiento").value = procedimiento.trim();
+            } catch (error) {
+                document.getElementById("resultado").textContent = "Error en el cálculo.";
+                document.getElementById("procedimiento").value = "No se pudo calcular el límite. Revisa la función.";
+            }
+        }
+    </script>
+</body>
+</html>
