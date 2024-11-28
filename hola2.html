@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Derivadas con Procedimiento</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            text-align: center;
+        }
+        input, textarea {
+            margin: 5px;
+            padding: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+        textarea {
+            width: 80%;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Derivadas con Procedimiento</h1>
+    <p>Ingresa una función para calcular su derivada paso a paso:</p>
+    
+    <div>
+        <label for="funcion">Función (f(x)):</label>
+        <input type="text" id="funcion" placeholder="Ejemplo: x^-2 + 3*x + 1">
+    </div>
+    <button onclick="calcularDerivada()">Calcular Derivada</button>
+
+    <div class="result">
+        <p id="resultado">El resultado será mostrado aquí.</p>
+        <textarea id="procedimiento" readonly placeholder="Procedimiento"></textarea>
+    </div>
+
+    <script>
+        function calcularDerivada() {
+            // Obtener la función ingresada por el usuario
+            const funcionStr = document.getElementById("funcion").value;
+
+            if (!funcionStr) {
+                alert("Por favor, ingresa una función válida.");
+                return;
+            }
+
+            try {
+                // Crear expresión matemática y derivar simbólicamente
+                const expr = math.parse(funcionStr); // Analiza la función
+                const derivadaExpr = math.derivative(expr, 'x'); // Derivar simbólicamente con respecto a x
+                const derivada = derivadaExpr.toString(); // Convertir la derivada simbólica a string
+
+                // Generar procedimiento detallado
+                const procedimiento = generarProcedimiento(funcionStr);
+
+                // Mostrar resultados
+                document.getElementById("resultado").textContent = `Derivada: f'(x) = ${derivada}`;
+                document.getElementById("procedimiento").value = procedimiento;
+            } catch (error) {
+                document.getElementById("resultado").textContent = "Error en el cálculo.";
+                document.getElementById("procedimiento").value = "No se pudo calcular la derivada. Revisa la función.";
+            }
+        }
+
+        function generarProcedimiento(funcionStr) {
+            // Desglose del procedimiento para derivadas comunes
+            const pasos = [];
+            pasos.push(`Función original: f(x) = ${funcionStr}`);
+
+            // Dividir la función en términos (asume que están separados por + o -)
+            const terminos = funcionStr.split(/(?=[+-])/); // Divide por + o -
+
+            pasos.push("\nPaso 1: Aplicar las reglas de derivación a cada término.");
+
+            terminos.forEach((termino, index) => {
+                const derivadaTermino = calcularDerivadaTermino(termino.trim());
+                pasos.push(`  Término ${index + 1}: ${termino} -> ${derivadaTermino}`);
+            });
+
+            pasos.push("\nPaso 2: Combinar los resultados de las derivadas.");
+            pasos.push("Suma de derivadas: " + terminos.map(calcularDerivadaTermino).join(" + "));
+
+            return pasos.join("\n");
+        }
+
+        function calcularDerivadaTermino(termino) {
+            // Identificar el tipo de término y derivar
+            if (termino.includes("x^")) {
+                // Regla de la potencia: a*x^n -> a*n*x^(n-1)
+                const [coeficienteStr, exponenteStr] = termino.split("x^");
+                const coeficiente = parseFloat(coeficienteStr) || 1; // Si no hay coeficiente, es 1
+                const exponente = parseFloat(exponenteStr);
+
+                const nuevoCoeficiente = coeficiente * exponente;
+                const nuevoExponente = exponente - 1;
+
+                // Derivada cuando el exponente es 0 (evitar x^0, ya que se convierte en constante)
+                if (nuevoExponente === 0) {
+                    return `${nuevoCoeficiente}`;
+                } else if (nuevoExponente === 1) {
+                    return `${nuevoCoeficiente}x`;
+                } else {
+                    return `${nuevoCoeficiente}x^${nuevoExponente}`;
+                }
+            } else if (termino.includes("x")) {
+                // Regla de la potencia (caso x -> 1)
+                const coeficiente = parseFloat(termino.replace("x", "")) || 1;
+                return `${coeficiente}`;
+            } else {
+                // Constantes -> derivada es 0
+                return "0";
+            }
+        }
+    </script>
+</body>
+</html>
